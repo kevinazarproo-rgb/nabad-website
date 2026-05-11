@@ -187,7 +187,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <a href="#">Log in</a>
   </div>
   <div class="menu-bottom">
-    <a href="#" class="btn-primary">Get 14 days free</a>
+    <a href="#" class="btn-primary">See the plans</a>
   </div>
 </div>
 
@@ -205,11 +205,11 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <h1>One pass for every studio in Lebanon</h1>
     <p>Pilates, yoga, boxing, HIIT — book classes at hundreds of studios with a single membership.</p>
     <div class="hero-ctas">
-      <a href="#" class="btn-primary">Get 14 days free</a>
+      <a href="#" class="btn-primary">See the plans</a>
       <button class="btn-outline" onclick="openOnb()">Learn more about Nabad</button>
     </div>
     <a href="#" class="hero-link">Browse classes &amp; studios</a>
-    <p class="hero-disclaimer">Trial is limited to select studios. Late cancel or missed reservation <a href="#">fees apply</a>.</p>
+    <p class="hero-disclaimer">Late cancel or missed reservation <a href="#">fees apply</a>.</p>
   </div>
 </section>
 
@@ -296,7 +296,7 @@ function renderOnb(){
   onbQ.textContent = slides[onbIdx].q;
   onbA.textContent = slides[onbIdx].a;
   onbDots.innerHTML = slides.map((_,i)=>`<span class="onb-dot ${i===onbIdx?'on':''}"></span>`).join('');
-  onbNextBtn.textContent = (onbIdx === slides.length - 1) ? 'Get 14 days free' : 'Next';
+  onbNextBtn.textContent = (onbIdx === slides.length - 1) ? 'See the plans' : 'Next';
 }
 function openOnb(){ onbIdx = 0; renderOnb(); onb.classList.add('open'); onb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
 function closeOnb(){ onb.classList.remove('open'); onb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }

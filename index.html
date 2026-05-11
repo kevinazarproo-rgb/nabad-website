@@ -149,6 +149,16 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 }
 .onb-next:hover{background:#222}
 .onb-skip{font-size:14.5px;text-decoration:underline;color:var(--ink);font-weight:500}
+
+/* FOOTER */
+.footer{background:#000;color:#fff;padding:56px 0 40px;margin-top:24px}
+.footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px}
+@media(min-width:800px){.footer-grid{grid-template-columns:repeat(4,1fr);gap:48px}}
+.footer h4{font-size:22px;font-weight:700;margin-bottom:18px;letter-spacing:-.01em}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.footer a{color:#fff;font-size:17px;font-weight:400}
+.footer a:hover{text-decoration:underline}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#888}
 </style>
 </head>
 <body>
@@ -219,6 +229,54 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <a href="#" class="onb-skip">Skip straight to sign up</a>
   </div>
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Gifts</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#" onclick="openOnb();return false;">How credits work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Corporate wellness</h4>
+        <ul>
+          <li><a href="#">Our program</a></li>
+          <li><a href="#" onclick="openOnb();return false;">How it works</a></li>
+          <li><a href="#">Refer your company</a></li>
+          <li><a href="#">Resource center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:hello@nabad.studio">Contact us</a></li>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="partners.html">Earnings calculator</a></li>
+          <li><a href="partners.html">List my business</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Nabad. All rights reserved.</span>
+      <span>Made in Beirut</span>
+    </div>
+  </div>
+</footer>
 
 <script>
 const slides = [

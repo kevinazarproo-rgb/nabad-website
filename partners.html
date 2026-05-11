@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nabad for Studios — Fill your empty spots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --cream:#F5F0E8;
+  --cream-2:#EBE3D6;
+  --pink:#F4D9CC;
+  --pink-2:#EBC7B5;
+  --terra:#D67756;
+  --terra-d:#B85F40;
+  --ink:#1A1714;
+  --slate:#5C544D;
+  --line:rgba(26,23,20,0.10);
+  --line-d:rgba(245,240,232,0.10);
+  --f-serif: 'Fraunces', Georgia, serif;
+  --f-sans: 'DM Sans', -apple-system, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--f-sans);
+  font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 48px;
+  transition:background .3s, padding .3s, backdrop-filter .3s;
+}
+.nav.scrolled{
+  background:rgba(245,240,232,0.85);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  padding:14px 48px;
+  border-bottom:1px solid var(--line);
+}
+.logo{font-family:var(--f-serif);font-size:26px;font-weight:400;letter-spacing:-.02em}
+.logo em{font-style:italic;color:var(--terra)}
+.nav-links{display:flex;gap:32px;align-items:center;font-size:14px;font-weight:500}
+.nav-cta{padding:10px 22px;background:var(--ink);color:var(--cream);border-radius:100px;font-size:14px;font-weight:500;transition:transform .2s, background .2s}
+.nav-cta:hover{transform:translateY(-1px);background:var(--terra)}
+@media(max-width:900px){.nav{padding:16px 20px}.nav-links{display:none}}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:90vh;
+  padding:160px 48px 100px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:center;
+  overflow:hidden;
+  background:var(--cream);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(214,119,86,0.18), transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(244,217,204,0.5), transparent 60%);
+  pointer-events:none;
+}
+.hero-text{position:relative;z-index:2;max-width:720px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;background:rgba(255,255,255,.65);
+  border:1px solid var(--line);border-radius:100px;
+  font-size:13px;font-weight:500;color:var(--slate);
+  margin-bottom:32px;backdrop-filter:blur(8px);
+}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--terra);border-radius:50%}
+.hero-title{
+  font-family:var(--f-serif);
+  font-size:clamp(48px,7vw,108px);
+  line-height:.95;
+  letter-spacing:-.04em;
+  font-weight:400;
+  margin-bottom:32px;
+}
+.hero-title em{font-style:italic;color:var(--terra)}
+.hero-title .underline{position:relative;display:inline-block}
+.hero-title .underline::after{
+  content:'';position:absolute;left:0;right:0;bottom:8px;
+  height:14px;background:var(--pink);z-index:-1;border-radius:8px;
+}
+.hero-sub{font-size:20px;line-height:1.5;color:var(--slate);max-width:560px;margin-bottom:40px}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 32px;border-radius:100px;
+  font-size:15px;font-weight:500;
+  transition:transform .2s, box-shadow .2s, background .2s;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{background:var(--terra);transform:translateY(-2px);box-shadow:0 12px 32px rgba(214,119,86,.35)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.btn svg{width:16px;height:16px}
+
+/* hero stats card */
+.hero-vis{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;gap:18px;
+}
+.stat-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:24px;padding:28px;
+  box-shadow:0 30px 60px -20px rgba(26,23,20,.15);
+  transition:transform .4s;
+}
+.stat-card:hover{transform:translateY(-4px)}
+.stat-card.ink{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.stat-cap{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--slate);margin-bottom:8px}
+.stat-card.ink .stat-cap{color:var(--pink-2)}
+.stat-num{font-family:var(--f-serif);font-size:64px;line-height:1;font-weight:400;letter-spacing:-.02em;margin-bottom:8px}
+.stat-card .stat-num em{font-style:italic;color:var(--terra)}
+.stat-desc{font-size:13px;color:var(--slate)}
+.stat-card.ink .stat-desc{color:rgba(245,240,232,.65)}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini-stat{
+  background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:20px;
+}
+.mini-stat .num{font-family:var(--f-serif);font-size:32px;line-height:1;font-weight:500;letter-spacing:-.02em;color:var(--terra)}
+.mini-stat .lbl{font-size:12px;color:var(--slate);margin-top:6px}
+
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;padding:120px 24px 60px;text-align:center}
+  .hero-text{max-width:100%;margin:0 auto}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-cta-row{justify-content:center}
+}
+
+/* SECTIONS */
+section{padding:140px 48px;position:relative}
+.container{max-width:1280px;margin:0 auto}
+.eyebrow{
+  font-size:13px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--terra);
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:20px;
+}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--terra)}
+.section-title{
+  font-family:var(--f-serif);
+  font-size:clamp(40px,5.5vw,80px);
+  line-height:1;letter-spacing:-.03em;
+  font-weight:400;margin-bottom:24px;
+}
+.section-title em{font-style:italic;color:var(--terra)}
+.section-sub{font-size:18px;color:var(--slate);max-width:580px;line-height:1.55}
+.section-head{margin-bottom:80px}
+.section-head.center{text-align:center}
+.section-head.center .eyebrow,
+.section-head.center .section-sub{margin-left:auto;margin-right:auto}
+.section-head.center .section-sub{display:block}
+@media(max-width:900px){section{padding:90px 24px}.section-head{margin-bottom:48px}}
+
+/* PROBLEM */
+#problem{background:var(--cream)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prob-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:24px;padding:36px 28px;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.prob-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -12px rgba(26,23,20,.12);border-color:var(--terra)}
+.prob-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--pink);color:var(--terra-d);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;
+}
+.prob-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.6;fill:none}
+.prob-stat{
+  font-family:var(--f-serif);font-size:56px;line-height:1;
+  letter-spacing:-.02em;color:var(--ink);margin-bottom:14px;font-weight:400;
+}
+.prob-stat em{font-style:italic;color:var(--terra)}
+.prob-title{font-family:var(--f-serif);font-size:22px;font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
+.prob-desc{font-size:14px;color:var(--slate);line-height:1.6}
+@media(max-width:900px){.problem-grid{grid-template-columns:1fr}}
+
+/* HOW (4 steps) — dark */
+#how{background:var(--ink);color:var(--cream);border-radius:48px 48px 0 0;margin-top:0}
+#how .section-title em{color:var(--pink)}
+#how .section-sub{color:rgba(245,240,232,.65)}
+#how .eyebrow{color:var(--pink-2)}
+#how .eyebrow::before{background:var(--pink-2)}
+.flow-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.flow-card{
+  position:relative;padding:32px 24px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  transition:background .3s, border-color .3s, transform .3s;
+}
+.flow-card:hover{background:rgba(255,255,255,.07);border-color:var(--terra);transform:translateY(-4px)}
+.flow-num{
+  font-family:var(--f-serif);font-size:48px;line-height:1;
+  color:var(--terra);font-weight:400;margin-bottom:20px;font-style:italic;
+}
+.flow-title{font-family:var(--f-serif);font-size:22px;font-weight:500;margin-bottom:10px;letter-spacing:-.01em;color:var(--cream)}
+.flow-desc{font-size:14px;color:rgba(245,240,232,.65);line-height:1.6}
+@media(max-width:1000px){.flow-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.flow-grid{grid-template-columns:1fr}}
+
+/* MODEL */
+#model{background:var(--cream)}
+.model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.model-card{
+  position:relative;
+  background:#fff;border:1px solid var(--line);
+  border-radius:24px;padding:36px 28px;
+  display:flex;flex-direction:column;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.model-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -12px rgba(26,23,20,.12)}
+.model-card.featured{
+  background:var(--ink);color:var(--cream);border-color:var(--ink);
+  transform:scale(1.03);
+}
+.model-card.featured:hover{transform:scale(1.03) translateY(-6px)}
+.model-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--terra);color:#fff;
+  padding:6px 16px;border-radius:100px;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+.model-name{font-family:var(--f-serif);font-size:24px;font-weight:500;margin-bottom:6px;letter-spacing:-.01em}
+.model-tagline{font-size:13px;color:var(--slate);margin-bottom:24px;line-height:1.4;min-height:38px}
+.model-card.featured .model-tagline{color:rgba(245,240,232,.6)}
+.model-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:14px}
+.model-amount .num{font-family:var(--f-serif);font-size:64px;font-weight:400;line-height:1;letter-spacing:-.02em}
+.model-amount .per{font-size:13px;color:var(--slate)}
+.model-card.featured .model-amount .per{color:rgba(245,240,232,.6)}
+.model-card.featured .model-amount .num em{font-style:italic;color:var(--pink)}
+.model-list{flex:1;list-style:none;display:flex;flex-direction:column;gap:14px;margin:24px 0 32px}
+.model-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.45}
+.model-list li::before{
+  content:'✓';color:var(--terra);
+  font-weight:700;font-size:13px;flex-shrink:0;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--pink);display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+.model-card.featured .model-list li::before{background:rgba(244,217,204,.2);color:var(--pink)}
+@media(max-width:900px){.model-grid{grid-template-columns:1fr}.model-card.featured{transform:none}.model-card.featured:hover{transform:translateY(-6px)}}
+
+/* CALCULATOR */
+#calc{
+  background:var(--ink);color:var(--cream);
+  position:relative;overflow:hidden;
+}
+#calc::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(214,119,86,.25), transparent 50%);
+  pointer-events:none;
+}
+#calc .container{position:relative;z-index:2}
+#calc .section-title em{color:var(--pink)}
+#calc .section-sub{color:rgba(245,240,232,.65)}
+#calc .eyebrow{color:var(--pink-2)}
+#calc .eyebrow::before{background:var(--pink-2)}
+.calc-wrap{
+  max-width:880px;margin:0 auto;
+  display:flex;flex-direction:column;gap:24px;
+}
+.calc-input-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;padding:36px 40px;
+}
+.calc-label{
+  font-family:var(--f-serif);font-size:24px;line-height:1.25;font-weight:400;
+  margin-bottom:24px;letter-spacing:-.01em;
+}
+.calc-label em{font-style:italic;color:var(--terra)}
+.calc-input-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.calc-input-row input[type="range"]{
+  flex:1;min-width:240px;
+  -webkit-appearance:none;appearance:none;
+  height:6px;background:rgba(255,255,255,.12);
+  border-radius:100px;outline:none;
+}
+.calc-input-row input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--terra);cursor:pointer;
+  box-shadow:0 0 0 6px rgba(214,119,86,.18);
+  transition:transform .2s;
+}
+.calc-input-row input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.1)}
+.calc-num-input{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:8px 14px;
+}
+.calc-num-input input{
+  width:90px;background:transparent;border:none;color:var(--cream);
+  font-family:var(--f-serif);font-size:32px;font-weight:400;text-align:right;outline:none;
+  letter-spacing:-.02em;
+}
+.calc-num-input span{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(245,240,232,.5)}
+.calc-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 32px;border-radius:100px;
+  background:var(--terra);color:#fff;font-size:15px;font-weight:500;
+  transition:transform .2s, background .2s, box-shadow .2s;
+  margin-top:24px;
+  align-self:flex-start;
+}
+.calc-btn:hover{background:#fff;color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 28px rgba(214,119,86,.25)}
+.calc-result-card{
+  background:linear-gradient(135deg,rgba(214,119,86,.15),rgba(244,217,204,.05));
+  border:1px solid rgba(214,119,86,.3);
+  border-radius:24px;padding:48px 40px;text-align:center;
+  opacity:0;transform:translateY(20px) scale(.96);
+  transition:opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.calc-result-card.show{opacity:1;transform:translateY(0) scale(1)}
+.calc-result-cap{font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:rgba(245,240,232,.6);margin-bottom:18px}
+.calc-result-num{
+  font-family:var(--f-serif);
+  font-size:clamp(64px,10vw,128px);
+  line-height:.95;font-weight:400;letter-spacing:-.04em;
+  color:var(--terra);
+}
+.calc-result-num small{font-size:.45em;color:rgba(245,240,232,.6);font-weight:400}
+.calc-result-sub{
+  font-size:18px;color:var(--cream);margin-top:14px;
+  font-family:var(--f-serif);font-style:italic;
+}
+.calc-result-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  margin-top:32px;padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.calc-mini{text-align:center}
+.calc-mini-cap{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:rgba(245,240,232,.5);margin-bottom:6px}
+.calc-mini-val{font-family:var(--f-serif);font-size:32px;font-weight:400;color:var(--cream)}
+
+/* TESTIMONIAL */
+#proof{background:var(--cream)}
+.proof-card{
+  max-width:980px;margin:0 auto;
+  background:#fff;border:1px solid var(--line);border-radius:32px;
+  padding:64px 48px;
+  display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:center;
+}
+.proof-img{
+  aspect-ratio:1;border-radius:24px;
+  background:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=85') center/cover;
+}
+.proof-quote{
+  font-family:var(--f-serif);font-size:30px;line-height:1.25;
+  letter-spacing:-.01em;font-weight:400;margin-bottom:24px;
+}
+.proof-quote em{font-style:italic;color:var(--terra)}
+.proof-author{display:flex;align-items:center;gap:14px}
+.proof-avatar{width:52px;height:52px;border-radius:50%;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80')}
+.proof-name{font-family:var(--f-serif);font-size:18px;font-weight:500}
+.proof-role{font-size:13px;color:var(--slate)}
+@media(max-width:900px){.proof-card{grid-template-columns:1fr;padding:40px 28px}}
+
+/* CTA */
+.final-cta{
+  background:var(--ink);color:var(--cream);
+  padding:120px 48px;text-align:center;position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(214,119,86,.3), transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(244,217,204,.15), transparent 50%);
+}
+.final-cta-inner{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.final-cta h2{
+  font-family:var(--f-serif);font-size:clamp(48px,7vw,96px);
+  line-height:1;letter-spacing:-.03em;font-weight:400;margin-bottom:24px;
+}
+.final-cta h2 em{font-style:italic;color:var(--pink)}
+.final-cta p{font-size:18px;color:rgba(245,240,232,.7);margin-bottom:36px}
+.final-cta .btn-primary{background:var(--terra)}
+.final-cta .btn-primary:hover{background:#fff;color:var(--ink)}
+
+/* FOOTER */
+footer{
+  background:var(--ink);color:var(--cream);
+  padding:64px 48px 32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1280px;margin:0 auto}
+.footer-brand .logo{color:var(--cream)}
+.footer-brand p{font-size:14px;color:rgba(245,240,232,.55);margin-top:12px;max-width:300px;line-height:1.5}
+.footer-col h4{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--pink-2);margin-bottom:18px;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:14px;color:rgba(245,240,232,.7);transition:color .2s}
+.footer-col a:hover{color:var(--terra)}
+.footer-bot{
+  max-width:1280px;margin:48px auto 0;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:rgba(245,240,232,.4);flex-wrap:wrap;gap:12px;
+}
+@media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:1/-1}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="logo">N<em>abad</em></a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="#model">Model</a>
+    <a href="#calc">Revenue</a>
+    <a href="index.html">For movers</a>
+  </div>
+  <a href="#calc" class="nav-cta">Become a partner</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">For studio owners</div>
+    <h1 class="hero-title">
+      Fill <em>every</em><br/>
+      <span class="underline">empty spot</span><br/>
+      in your studio.
+    </h1>
+    <p class="hero-sub">
+      Turn no-shows and quiet hours into recurring revenue. Nabad sends you new movers — at zero cost, zero risk. You only pay when seats are filled.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#calc" class="btn btn-primary">
+        Calculate your revenue
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#how" class="btn btn-ghost">How it works</a>
+    </div>
+  </div>
+
+  <div class="hero-vis">
+    <div class="stat-card ink">
+      <div class="stat-cap">Average partner studio</div>
+      <div class="stat-num">+<em>$4,200</em><small style="font-size:.45em;color:rgba(245,240,232,.6)">/mo</small></div>
+      <div class="stat-desc">Recurring revenue from previously empty spots — across our network of partner studios.</div>
+    </div>
+    <div class="stat-row">
+      <div class="mini-stat">
+        <div class="num">$13</div>
+        <div class="lbl">Per filled spot. That's it.</div>
+      </div>
+      <div class="mini-stat">
+        <div class="num">0%</div>
+        <div class="lbl">Setup. Risk. Commitment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">The problem</div>
+      <h2 class="section-title">Every empty spot<br/>is <em>lost revenue.</em></h2>
+      <p class="section-sub">Studios in Lebanon run at 60–70% capacity on average. The rest? Pure loss. You paid the instructor either way.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card reveal">
+        <div class="prob-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+        <div class="prob-stat"><em>30–40%</em></div>
+        <div class="prob-title">Empty spots, every class</div>
+        <div class="prob-desc">DM bookings, last-minute cancellations, weekday afternoons — they add up to thousands of unsold seats per month.</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-icon"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="prob-stat"><em>$0</em></div>
+        <div class="prob-title">Recovered without us</div>
+        <div class="prob-desc">No platform fills those spots for you today. Discounting kills your brand. Ads cost more than the seat is worth.</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/><circle cx="8.5" cy="7" r="4"/></svg></div>
+        <div class="prob-stat"><em>1 in 4</em></div>
+        <div class="prob-title">Drop-ins become regulars</div>
+        <div class="prob-desc">Across our partners, a quarter of Nabad members convert to direct memberships within 6 months. The empty seat becomes a customer for life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title">From empty seat<br/>to <em>paid seat</em> — in 4 steps.</h2>
+      <p class="section-sub">No setup fees. No exclusivity. No commitment. You stay in full control of your schedule, brand, and pricing.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-num">01</div>
+        <div class="flow-title">Sync your schedule</div>
+        <div class="flow-desc">Connect your booking system in minutes — Mindbody, Zenoti, or our simple manual calendar.</div>
+      </div>
+      <div class="flow-card reveal">
+        <div class="flow-num">02</div>
+        <div class="flow-title">You decide</div>
+        <div class="flow-desc">Open only the spots you want. Off-peak, last-minute, specific classes — your call. We never oversell.</div>
+      </div>
+      <div class="flow-card reveal">
+        <div class="flow-num">03</div>
+        <div class="flow-title">Movers book</div>
+        <div class="flow-desc">Nabad members find you in the app, book, and walk in. They scan, you welcome them. That's it.</div>
+      </div>
+      <div class="flow-card reveal">
+        <div class="flow-num">04</div>
+        <div class="flow-title">Get paid</div>
+        <div class="flow-desc">$13 for every spot filled. Paid out monthly. No fees on bookings that don't happen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">The model</div>
+      <h2 class="section-title">Pay-per-spot.<br/><em>Zero</em> commitment.</h2>
+      <p class="section-sub">Only pay when a seat is actually filled. No subscription. No setup fee. No exclusivity clause.</p>
+    </div>
+    <div class="model-grid">
+      <div class="model-card reveal">
+        <div class="model-name">Standard</div>
+        <div class="model-tagline">Open up your off-peak hours and watch them fill.</div>
+        <div class="model-amount"><span class="num">$13</span><span class="per">/ filled spot</span></div>
+        <ul class="model-list">
+          <li>Pay only on confirmed check-ins</li>
+          <li>You set the spots, the times, the cap</li>
+          <li>Cancellation policy fully respected</li>
+          <li>Monthly payouts, transparent reporting</li>
+          <li>No setup fee, no monthly minimum</li>
+        </ul>
+      </div>
+
+      <div class="model-card featured reveal">
+        <div class="model-badge">Recommended</div>
+        <div class="model-name">Partner</div>
+        <div class="model-tagline">Premium placement, lead handover and conversion bonus.</div>
+        <div class="model-amount"><span class="num"><em>$13</em></span><span class="per">/ filled spot</span></div>
+        <ul class="model-list">
+          <li>Everything in Standard</li>
+          <li>Priority placement in the app</li>
+          <li>First access to new neighborhoods</li>
+          <li>Lead capture: convert drop-ins to direct members</li>
+          <li>Co-marketing on Nabad social channels</li>
+          <li>Dedicated partner success manager</li>
+        </ul>
+      </div>
+
+      <div class="model-card reveal">
+        <div class="model-name">Studio Plus</div>
+        <div class="model-tagline">For multi-location and large studios.</div>
+        <div class="model-amount"><span class="num">Custom</span></div>
+        <ul class="model-list">
+          <li>Volume pricing per region</li>
+          <li>Multi-site dashboard</li>
+          <li>API & POS integration</li>
+          <li>Brand take-overs</li>
+          <li>Quarterly business review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calc">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Revenue calculator</div>
+      <h2 class="section-title">See how much<br/>you're <em>missing.</em></h2>
+      <p class="section-sub">Enter how many spots stay unsold per week. We'll show you what Nabad could mean for your bottom line.</p>
+    </div>
+
+    <div class="calc-wrap">
+      <div class="calc-input-card reveal">
+        <div class="calc-label">How many spots stay <em>unsold</em> per week?</div>
+        <div class="calc-input-row">
+          <input id="calcSlider" type="range" min="10" max="500" value="100" step="5"/>
+          <div class="calc-num-input">
+            <input id="calcNum" type="number" min="0" max="2000" value="100"/>
+            <span>spots / week</span>
+          </div>
+        </div>
+        <button class="calc-btn" id="calcGo">
+          Generate your revenue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="calc-result-card" id="calcResult">
+        <div class="calc-result-cap">You could be earning around</div>
+        <div class="calc-result-num">~$<span id="calcWeek">1,300</span><small>/week</small></div>
+        <div class="calc-result-sub">in recovered revenue from empty spots</div>
+        <div class="calc-result-row">
+          <div class="calc-mini">
+            <div class="calc-mini-cap">Per month</div>
+            <div class="calc-mini-val">$<span id="calcMonth">5,200</span></div>
+          </div>
+          <div class="calc-mini">
+            <div class="calc-mini-cap">Per year</div>
+            <div class="calc-mini-val">$<span id="calcYear">62,400</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="container">
+    <div class="proof-card reveal">
+      <div class="proof-img"></div>
+      <div>
+        <div class="eyebrow">Partner story</div>
+        <div class="proof-quote">"In our first three months on Nabad we filled <em>340 spots</em> that would have stayed empty. That's <em>$4,400</em> we wouldn't have seen."</div>
+        <div class="proof-author">
+          <div class="proof-avatar"></div>
+          <div>
+            <div class="proof-name">Rana Khoury</div>
+            <div class="proof-role">Owner · Forme Reformer · Achrafieh</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Ready to fill<br/>your <em>empty seats?</em></h2>
+    <p>Join 60+ studios across Lebanon. No setup fee. No commitment.</p>
+    <a href="mailto:studionabad@gmail.com" class="btn btn-primary">Become a partner</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">N<em>abad</em></a>
+      <p>One membership. Every studio in Lebanon. The fastest way to fill your empty spots.</p>
+    </div>
+    <div class="footer-col">
+      <h4>For movers</h4>
+      <ul>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#studios">Studios</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#app">App</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>For studios</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#calc">Calculator</a></li>
+        <li><a href="mailto:studionabad@gmail.com">Become partner</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 Nabad. Built in Beirut.</span>
+    <span>studionabad@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Calculator
+const slider = document.getElementById('calcSlider');
+const numIn = document.getElementById('calcNum');
+const goBtn = document.getElementById('calcGo');
+const resCard = document.getElementById('calcResult');
+const wEl = document.getElementById('calcWeek');
+const mEl = document.getElementById('calcMonth');
+const yEl = document.getElementById('calcYear');
+const RATE = 13;
+const fmt = n => n.toLocaleString('en-US');
+
+function syncFromSlider(){ numIn.value = slider.value; resCard.classList.remove('show'); }
+function syncFromNum(){
+  const v = Math.max(0, Math.min(2000, parseInt(numIn.value)||0));
+  if (v <= parseInt(slider.max)) slider.value = v;
+  resCard.classList.remove('show');
+}
+slider.addEventListener('input', syncFromSlider);
+numIn.addEventListener('input', syncFromNum);
+
+function generate(){
+  const spots = parseInt(numIn.value) || 0;
+  const week = spots * RATE;
+  const month = week * 4;
+  const year = week * 52;
+  // animate numbers
+  animate(wEl, week);
+  animate(mEl, month);
+  animate(yEl, year);
+  resCard.classList.add('show');
+}
+function animate(el, end){
+  const start = parseInt(el.textContent.replace(/,/g,''))||0;
+  const dur = 600, t0 = performance.now();
+  function step(now){
+    const t = Math.min(1, (now-t0)/dur);
+    const v = Math.round(start + (end-start) * (1 - Math.pow(1-t, 3)));
+    el.textContent = fmt(v);
+    if (t<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+goBtn.addEventListener('click', generate);
+</script>
+</body>
+</html>

@@ -187,7 +187,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <a href="#">Log in</a>
   </div>
   <div class="menu-bottom">
-    <a href="#" class="btn-primary">See the plans</a>
+    <a href="plans.html" class="btn-primary">See the plans</a>
   </div>
 </div>
 
@@ -205,7 +205,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <h1>One pass for every studio in Lebanon</h1>
     <p>Pilates, yoga, boxing, HIIT — book classes at hundreds of studios with a single membership.</p>
     <div class="hero-ctas">
-      <a href="#" class="btn-primary">See the plans</a>
+      <a href="plans.html" class="btn-primary">See the plans</a>
       <button class="btn-outline" onclick="openOnb()">Learn more about Nabad</button>
     </div>
     <a href="#" class="hero-link">Browse classes &amp; studios</a>
@@ -302,7 +302,7 @@ function openOnb(){ onbIdx = 0; renderOnb(); onb.classList.add('open'); onb.setA
 function closeOnb(){ onb.classList.remove('open'); onb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
 function onbNext(){
   if(onbIdx < slides.length - 1){ onbIdx++; renderOnb(); }
-  else { closeOnb(); }
+  else { window.location.href = 'plans.html'; }
 }
 </script>
 </body>

@@ -117,94 +117,38 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   .hero h1{max-width:18ch}
 }
 
-/* SECTION */
-.section{padding:56px 0}
-@media(min-width:900px){.section{padding:88px 0}}
-.section-eyebrow{font-size:13px;font-weight:500;color:var(--slate);margin-bottom:8px}
-.section-h{
-  font-size:clamp(28px,5.5vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1;
-  text-wrap:balance;
+/* ONBOARDING OVERLAY */
+.onb{
+  position:fixed;inset:0;z-index:80;background:var(--bg-soft);
+  display:none;flex-direction:column;
 }
-
-/* ONBOARDING-STYLE CARDS */
-.cards{background:var(--bg-soft);padding:0}
-.card-stack{display:flex;flex-direction:column;gap:6px}
-.card{
-  background:var(--bg-soft);
-  padding:56px 24px 64px;
-  min-height:80vh;
-  display:flex;flex-direction:column;justify-content:center;
+.onb.open{display:flex}
+.onb-top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;
 }
-.card .q{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:18px}
-.card .a{
-  font-size:clamp(26px,5.5vw,36px);
-  font-weight:800;
-  line-height:1.18;
-  letter-spacing:-.02em;
+.onb-logo{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.onb-close{font-size:28px;font-weight:400;background:transparent;color:var(--ink);line-height:1}
+.onb-body{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:24px 24px 0;
 }
-.card-dots{display:flex;gap:8px;justify-content:center;margin-top:36px}
-.card-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.18)}
-.card-dot.on{background:var(--ink)}
-.card .btn-primary{background:var(--ink)}
-.card .btn-primary:hover{background:#222}
-.card-cta{margin-top:36px;display:flex;flex-direction:column;gap:14px;align-items:center}
-.card-cta .skip{font-size:14.5px;text-decoration:underline;color:var(--ink);font-weight:500}
-
-/* CATEGORIES */
-.cats-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px;gap:16px;flex-wrap:wrap}
-.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(min-width:700px){.cats{grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(min-width:1000px){.cats{grid-template-columns:repeat(6,1fr)}}
-.cat{position:relative;aspect-ratio:1/1.1;border-radius:14px;overflow:hidden;background:#eee}
-.cat img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.cat:hover img{transform:scale(1.05)}
-.cat::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.55))}
-.cat-label{position:absolute;left:14px;bottom:14px;color:#fff;font-weight:700;font-size:16px;z-index:2}
-
-/* PRICING */
-.plans{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px}
-@media(min-width:800px){.plans{grid-template-columns:repeat(3,1fr);gap:18px}}
-.plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;gap:14px}
-.plan.feat{background:var(--ink);color:#fff;border-color:var(--ink);position:relative}
-.plan.feat .plan-price{color:#fff}
-.plan.feat .plan-desc{color:#cfd2d8}
-.plan.feat .plan-li{color:#e9e9e9}
-.plan.feat .plan-btn{background:var(--blue);color:#fff}
-.plan-name{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
-.plan.feat .plan-name{color:#9ab2ff}
-.plan-price{font-size:42px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
-.plan-price small{font-size:14px;font-weight:500;color:var(--slate)}
-.plan.feat .plan-price small{color:#a8aeb9}
-.plan-desc{font-size:14.5px;color:var(--slate);line-height:1.55}
-.plan-ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px}
-.plan-li{font-size:14.5px;display:flex;gap:8px;align-items:flex-start}
-.plan-li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0;margin-top:1px}
-.plan.feat .plan-li::before{color:#7e98ff}
-.plan-btn{margin-top:auto;background:var(--ink);color:#fff;padding:14px;border-radius:100px;text-align:center;font-weight:700;transition:background .15s}
-.plan-btn:hover{background:#222}
-.plan-badge{position:absolute;top:-12px;right:20px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:100px;letter-spacing:.06em;text-transform:uppercase}
-
-/* FAQ */
-.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
-.faq-i{background:#fff;border:1px solid var(--line);border-radius:14px}
-.faq-i[open]{border-color:var(--ink)}
-.faq-q{padding:18px 22px;font-size:16px;font-weight:600;list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:14px}
-.faq-q::-webkit-details-marker{display:none}
-.faq-q::after{content:'+';font-weight:400;font-size:22px;color:var(--ink);transition:transform .2s}
-.faq-i[open] .faq-q::after{transform:rotate(45deg)}
-.faq-a{padding:0 22px 20px;color:var(--slate);font-size:15px;line-height:1.6}
-
-/* FOOTER */
-.footer{background:var(--ink);color:#cfd2d8;padding:48px 0 28px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:32px}
-@media(min-width:700px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}}
-.footer h4{font-size:13px;color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
-.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer a{color:#a8aeb9;font-size:14px}
-.footer a:hover{color:#fff}
-.footer-brand p{color:#a8aeb9;font-size:14px;margin-top:12px;max-width:34ch;line-height:1.55}
-.footer-logo{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.03em}
-.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#888}
+.onb-q{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.onb-a{
+  font-size:clamp(26px,6.5vw,40px);
+  font-weight:800;line-height:1.18;letter-spacing:-.02em;
+}
+.onb-foot{padding:24px 24px 36px;display:flex;flex-direction:column;gap:18px;align-items:center}
+.onb-dots{display:flex;gap:8px;justify-content:center}
+.onb-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.18);transition:background .2s}
+.onb-dot.on{background:var(--ink)}
+.onb-next{
+  width:100%;max-width:480px;background:var(--ink);color:#fff;
+  padding:18px;border-radius:100px;font-size:16px;font-weight:700;
+  text-align:center;transition:background .15s;
+}
+.onb-next:hover{background:#222}
+.onb-skip{font-size:14.5px;text-decoration:underline;color:var(--ink);font-weight:500}
 </style>
 </head>
 <body>
@@ -224,16 +168,16 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <button class="menu-close" aria-label="Close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
   </div>
   <div class="menu-list">
-    <a href="#search">Search</a>
-    <a href="#plans">Plans</a>
-    <a href="#how">How it works</a>
-    <a href="#gifts">Gifts</a>
+    <a href="#">Search</a>
+    <a href="#">Plans</a>
+    <a href="#" onclick="document.getElementById('menu').classList.remove('open');openOnb();return false;">How it works</a>
+    <a href="#">Gifts</a>
     <a href="partners.html">List my business</a>
-    <a href="#corp">Corporate wellness</a>
-    <a href="#login">Log in</a>
+    <a href="#">Corporate wellness</a>
+    <a href="#">Log in</a>
   </div>
   <div class="menu-bottom">
-    <a href="#plans" class="btn-primary">Get 14 days free</a>
+    <a href="#" class="btn-primary">Get 14 days free</a>
   </div>
 </div>
 
@@ -251,169 +195,57 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <h1>One pass for every studio in Lebanon</h1>
     <p>Pilates, yoga, boxing, HIIT — book classes at hundreds of studios with a single membership.</p>
     <div class="hero-ctas">
-      <a href="#plans" class="btn-primary">Get 14 days free</a>
-      <a href="#how" class="btn-outline">Learn more about Nabad</a>
+      <a href="#" class="btn-primary">Get 14 days free</a>
+      <button class="btn-outline" onclick="openOnb()">Learn more about Nabad</button>
     </div>
-    <a href="#search" class="hero-link">Browse classes &amp; studios</a>
-    <p class="hero-disclaimer">Trial is limited to select studios. Late cancel or missed reservation <a href="#fees">fees apply</a>.</p>
+    <a href="#" class="hero-link">Browse classes &amp; studios</a>
+    <p class="hero-disclaimer">Trial is limited to select studios. Late cancel or missed reservation <a href="#">fees apply</a>.</p>
   </div>
 </section>
 
-<!-- ONBOARDING CARDS (light blue, ClassPass-style) -->
-<section class="cards" id="how">
-  <div class="card-stack">
-    <div class="card">
-      <div class="wrap">
-        <div class="q">What is Nabad?</div>
-        <div class="a">Nabad is a credit-based membership that gives you access to hundreds of studios, gyms, and wellness experiences across Lebanon.</div>
-        <div class="card-dots"><span class="card-dot on"></span><span class="card-dot"></span><span class="card-dot"></span><span class="card-dot"></span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="wrap">
-        <div class="q">How do credits work?</div>
-        <div class="a">Each plan comes with credits to use for booking classes. The credit value of a reservation varies by location, popularity, and time.</div>
-        <div class="card-dots"><span class="card-dot"></span><span class="card-dot on"></span><span class="card-dot"></span><span class="card-dot"></span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="wrap">
-        <div class="q">What's the benefit of booking on Nabad?</div>
-        <div class="a">Nabad gives you an affordable way to explore studios, gyms, and wellness spaces at discounted rates — all under one membership.</div>
-        <div class="card-dots"><span class="card-dot"></span><span class="card-dot"></span><span class="card-dot on"></span><span class="card-dot"></span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="wrap">
-        <div class="q">Can I cancel anytime?</div>
-        <div class="a">Yes. Pause or cancel your plan in the app, anytime. No contracts, no fees, no friction.</div>
-        <div class="card-dots"><span class="card-dot"></span><span class="card-dot"></span><span class="card-dot"></span><span class="card-dot on"></span></div>
-        <div class="card-cta">
-          <a href="#plans" class="btn-primary">Get 14 days free</a>
-          <a href="#plans" class="skip">Skip straight to sign up</a>
-        </div>
-      </div>
-    </div>
+<!-- ONBOARDING OVERLAY -->
+<div class="onb" id="onb" aria-hidden="true">
+  <div class="onb-top">
+    <span class="onb-logo">Nabad</span>
+    <button class="onb-close" aria-label="Close" onclick="closeOnb()">×</button>
   </div>
-</section>
+  <div class="onb-body">
+    <div class="onb-q" id="onb-q"></div>
+    <div class="onb-a" id="onb-a"></div>
+  </div>
+  <div class="onb-foot">
+    <div class="onb-dots" id="onb-dots"></div>
+    <button class="onb-next" id="onb-next" onclick="onbNext()">Next</button>
+    <a href="#" class="onb-skip">Skip straight to sign up</a>
+  </div>
+</div>
 
-<!-- CATEGORIES -->
-<section class="section">
-  <div class="wrap">
-    <div class="cats-h">
-      <div>
-        <div class="section-eyebrow">Browse by activity</div>
-        <h2 class="section-h">Find what makes you move.</h2>
-      </div>
-    </div>
-    <div class="cats">
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">Pilates</span></a>
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">Yoga</span></a>
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1517438476312-10d79c5f25fc?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">Boxing</span></a>
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">HIIT</span></a>
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">Strength</span></a>
-      <a class="cat" href="#"><img src="https://images.unsplash.com/photo-1540206395-68808572332f?w=600&q=80&auto=format&fit=crop" alt=""/><span class="cat-label">Cycling</span></a>
-    </div>
-  </div>
-</section>
+<script>
+const slides = [
+  { q: "What is Nabad?", a: "Nabad is a credit-based membership that gives you access to hundreds of studios, gyms, and wellness experiences across Lebanon." },
+  { q: "How do credits work?", a: "Each plan comes with credits to use for booking classes. The credit value of a reservation varies by location, popularity, and time." },
+  { q: "What's the benefit of booking on Nabad?", a: "Nabad gives you an affordable way to explore studios, gyms, and wellness spaces at discounted rates — all under one membership." },
+  { q: "Can I cancel anytime?", a: "Yes. Pause or cancel your plan in the app, anytime. No contracts, no fees, no friction." }
+];
+let onbIdx = 0;
+const onb = document.getElementById('onb');
+const onbQ = document.getElementById('onb-q');
+const onbA = document.getElementById('onb-a');
+const onbDots = document.getElementById('onb-dots');
+const onbNextBtn = document.getElementById('onb-next');
 
-<!-- PRICING -->
-<section class="section" id="plans" style="background:#F7F7F8">
-  <div class="wrap">
-    <div class="section-eyebrow">Plans</div>
-    <h2 class="section-h">Pick the pass that fits your week.</h2>
-    <div class="plans">
-      <div class="plan">
-        <span class="plan-name">Light</span>
-        <div class="plan-price">$39<small> /month</small></div>
-        <p class="plan-desc">28 credits. About 4–5 classes a month.</p>
-        <ul class="plan-ul">
-          <li class="plan-li">Access to all studios</li>
-          <li class="plan-li">Book up to 7 days ahead</li>
-          <li class="plan-li">Credit rollover (30 days)</li>
-        </ul>
-        <a href="#" class="plan-btn">Start with Light</a>
-      </div>
-      <div class="plan feat">
-        <span class="plan-badge">Most popular</span>
-        <span class="plan-name">Core</span>
-        <div class="plan-price">$69<small> /month</small></div>
-        <p class="plan-desc">56 credits. 8–10 classes a month.</p>
-        <ul class="plan-ul">
-          <li class="plan-li">Everything in Light</li>
-          <li class="plan-li">Priority booking (14 days)</li>
-          <li class="plan-li">Bring-a-friend pass</li>
-        </ul>
-        <a href="#" class="plan-btn">Choose Core</a>
-      </div>
-      <div class="plan">
-        <span class="plan-name">Unlimited</span>
-        <div class="plan-price">$119<small> /month</small></div>
-        <p class="plan-desc">Unlimited credits. Train every day.</p>
-        <ul class="plan-ul">
-          <li class="plan-li">Everything in Core</li>
-          <li class="plan-li">Unlimited bookings</li>
-          <li class="plan-li">2 guest passes</li>
-        </ul>
-        <a href="#" class="plan-btn">Go Unlimited</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-eyebrow">FAQ</div>
-    <h2 class="section-h">Questions, answered.</h2>
-    <div class="faq-list">
-      <details class="faq-i"><summary class="faq-q">Which studios are part of Nabad?</summary><div class="faq-a">All partner studios are listed in the app. Browse by city, activity, or neighborhood and pick what fits your week.</div></details>
-      <details class="faq-i"><summary class="faq-q">Can I use Nabad in different cities?</summary><div class="faq-a">Yes — one pass works at every Nabad studio across Lebanon.</div></details>
-      <details class="faq-i"><summary class="faq-q">Do credits roll over?</summary><div class="faq-a">Unused credits roll over for 30 days on monthly plans.</div></details>
-      <details class="faq-i"><summary class="faq-q">Can I pause or cancel?</summary><div class="faq-a">Pause or cancel any time from the app — no fees, no friction.</div></details>
-      <details class="faq-i"><summary class="faq-q">I own a studio — how do I join?</summary><div class="faq-a">Visit our <a href="partners.html" style="color:var(--blue);text-decoration:underline">partners page</a> to learn how Nabad fills your empty spots.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Nabad</div>
-        <p>One pass. Every studio in Lebanon. Train how you want, where you want.</p>
-      </div>
-      <div>
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#plans">Plans</a></li>
-          <li><a href="#">App</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="partners.html">For studios</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="mailto:hello@nabad.studio">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#">Help center</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Privacy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Nabad. All rights reserved.</span>
-      <span>Made in Beirut</span>
-    </div>
-  </div>
-</footer>
+function renderOnb(){
+  onbQ.textContent = slides[onbIdx].q;
+  onbA.textContent = slides[onbIdx].a;
+  onbDots.innerHTML = slides.map((_,i)=>`<span class="onb-dot ${i===onbIdx?'on':''}"></span>`).join('');
+  onbNextBtn.textContent = (onbIdx === slides.length - 1) ? 'Get 14 days free' : 'Next';
+}
+function openOnb(){ onbIdx = 0; renderOnb(); onb.classList.add('open'); onb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeOnb(){ onb.classList.remove('open'); onb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+function onbNext(){
+  if(onbIdx < slides.length - 1){ onbIdx++; renderOnb(); }
+  else { closeOnb(); }
+}
+</script>
 </body>
 </html>

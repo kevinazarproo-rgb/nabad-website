@@ -55,7 +55,46 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:14px;font-weight:500}
 .nav-cta{padding:10px 22px;background:var(--ink);color:var(--cream);border-radius:100px;font-size:14px;font-weight:500;transition:transform .2s, background .2s}
 .nav-cta:hover{transform:translateY(-1px);background:var(--terra)}
-@media(max-width:900px){.nav{padding:16px 20px}.nav-links{display:none}}
+.nav-burger{width:40px;height:40px;border-radius:50%;display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:transparent;border:none;cursor:pointer}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+@media(max-width:900px){.nav{padding:16px 20px}.nav-links{display:none}.nav-cta{display:none}.nav-burger{display:flex}}
+
+/* MENU OVERLAY */
+.menu-overlay{position:fixed;inset:0;z-index:100;background:var(--cream);display:none;flex-direction:column;padding:14px 0 24px}
+.menu-overlay.open{display:flex}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:0 20px 20px}
+.menu-close{font-size:30px;font-weight:300;background:transparent;border:none;cursor:pointer;color:var(--ink);line-height:1}
+.menu-list{display:flex;flex-direction:column;flex:1}
+.menu-list a{padding:18px 20px;font-size:20px;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
+.menu-list a:first-child{border-top:1px solid var(--line)}
+.menu-bottom{padding:24px 20px 0}
+.menu-bottom a{display:block;text-align:center;background:var(--terra);color:#fff;padding:18px 24px;border-radius:100px;font-weight:700}
+
+/* PARTNER FORM */
+.partner-form{padding:64px 20px;background:var(--cream)}
+.partner-form .pf-inner{max-width:600px;margin:0 auto}
+.partner-form h2{font-family:var(--f-serif);font-size:clamp(30px,7vw,42px);font-weight:400;letter-spacing:-.02em;text-align:center;line-height:1.05}
+.partner-form .pf-sub{text-align:center;color:var(--ink);font-size:16px;line-height:1.5;margin:14px 0 28px}
+.pf-field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.pf-field label{font-size:13px;font-weight:600;color:var(--ink)}
+.pf-field input,.pf-field select,.pf-field textarea{
+  font:inherit;color:var(--ink);
+  border:1.5px solid rgba(30,26,23,.18);
+  background:#fff;padding:14px 16px;border-radius:12px;
+  outline:none;transition:border-color .15s;
+}
+.pf-field input:focus,.pf-field select:focus,.pf-field textarea:focus{border-color:var(--terra)}
+.pf-field textarea{resize:vertical;min-height:90px}
+.pf-row{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:600px){.pf-row{grid-template-columns:1fr 1fr}}
+.pf-check{display:flex;gap:10px;align-items:flex-start;margin:6px 0 18px;font-size:13.5px;color:var(--ink);line-height:1.45}
+.pf-check input{margin-top:3px;flex-shrink:0}
+.pf-submit{
+  width:100%;background:var(--ink);color:#fff;
+  padding:18px;border-radius:100px;font-size:16px;font-weight:700;
+  border:none;cursor:pointer;transition:background .15s;
+}
+.pf-submit:hover{background:var(--terra)}
 
 /* HERO */
 .hero{
@@ -445,7 +484,29 @@ footer{
     <a href="index.html">For movers</a>
   </div>
   <a href="#calc" class="nav-cta">Become a partner</a>
+  <button class="nav-burger" aria-label="Open menu" onclick="document.getElementById('menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menu">
+  <div class="menu-top">
+    <a href="index.html" class="logo">N<em>abad</em></a>
+    <button class="menu-close" aria-label="Close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
+  </div>
+  <div class="menu-list">
+    <a href="index.html">Home</a>
+    <a href="plans.html">Plans</a>
+    <a href="index.html#how">How it works</a>
+    <a href="#model">For studios</a>
+    <a href="#calc">Calculate revenue</a>
+    <a href="#partner-form">Become a partner</a>
+  </div>
+  <div class="menu-bottom">
+    <a href="#partner-form">Become a partner</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -668,12 +729,93 @@ footer{
   </div>
 </section>
 
+<!-- PARTNER FORM -->
+<section class="partner-form" id="partner-form">
+  <div class="pf-inner">
+    <h2>Ready to <em style="font-style:italic;color:var(--terra)">start earning?</em></h2>
+    <p class="pf-sub">Fill out the form below to learn what Nabad can do for your studio.</p>
+    <form onsubmit="event.preventDefault();alert('Thanks! We’ll reach out within 24 hours.');this.reset();">
+      <div class="pf-field">
+        <label for="pf-email">Email *</label>
+        <input id="pf-email" type="email" required/>
+      </div>
+      <div class="pf-row">
+        <div class="pf-field">
+          <label for="pf-first">First name *</label>
+          <input id="pf-first" type="text" required/>
+        </div>
+        <div class="pf-field">
+          <label for="pf-last">Last name *</label>
+          <input id="pf-last" type="text" required/>
+        </div>
+      </div>
+      <div class="pf-field">
+        <label for="pf-biz">Business name *</label>
+        <input id="pf-biz" type="text" required/>
+      </div>
+      <div class="pf-field">
+        <label for="pf-link">Website or social media link *</label>
+        <input id="pf-link" type="text" required placeholder="https://"/>
+      </div>
+      <div class="pf-field">
+        <label for="pf-type">Business type *</label>
+        <select id="pf-type" required>
+          <option value="">Please select</option>
+          <option>Pilates studio</option>
+          <option>Yoga studio</option>
+          <option>Gym / strength</option>
+          <option>Boxing / combat</option>
+          <option>HIIT / functional</option>
+          <option>Indoor cycling</option>
+          <option>Dance</option>
+          <option>Wellness / spa</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="pf-field">
+        <label for="pf-pos">What is your current booking &amp; POS system? *</label>
+        <select id="pf-pos" required>
+          <option value="">Please select</option>
+          <option>Mindbody</option>
+          <option>Glofox</option>
+          <option>Mariana Tek</option>
+          <option>WellnessLiving</option>
+          <option>Pen &amp; paper</option>
+          <option>Other</option>
+          <option>None</option>
+        </select>
+      </div>
+      <div class="pf-field">
+        <label for="pf-city">Location *</label>
+        <select id="pf-city" required>
+          <option value="">Please select</option>
+          <option>Beirut</option>
+          <option>Jounieh</option>
+          <option>Tripoli</option>
+          <option>Batroun</option>
+          <option>Saida</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="pf-field">
+        <label for="pf-phone">Phone *</label>
+        <input id="pf-phone" type="tel" required placeholder="+961"/>
+      </div>
+      <label class="pf-check">
+        <input type="checkbox" required/>
+        <span>I agree to receive communications from Nabad about onboarding, partnership and product updates.</span>
+      </label>
+      <button class="pf-submit" type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-cta-inner">
     <h2>Ready to fill<br/>your <em>empty seats?</em></h2>
     <p>Join 60+ studios across Lebanon. No setup fee. No commitment.</p>
-    <a href="mailto:studionabad@gmail.com" class="btn btn-primary">Become a partner</a>
+    <a href="#partner-form" class="btn btn-primary">Become a partner</a>
   </div>
 </section>
 

@@ -459,12 +459,22 @@ footer{
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .footer-col a{font-size:14px;color:rgba(245,240,232,.7);transition:color .2s}
 .footer-col a:hover{color:var(--terra)}
+.footer-apps{max-width:1280px;margin:36px auto 0;display:flex;gap:12px;flex-wrap:wrap}
+.app-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1.5px solid rgba(245,240,232,.4);border-radius:12px;color:var(--cream);font-weight:600;text-decoration:none;transition:background .15s, border-color .15s}
+.app-btn:hover{background:rgba(245,240,232,.06);border-color:var(--cream)}
+.app-btn svg{width:22px;height:22px;flex-shrink:0;fill:currentColor}
+.app-btn span{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.app-btn small{font-size:10px;font-weight:500;opacity:.7}
+.app-btn strong{font-size:14px;font-weight:700}
 .footer-bot{
-  max-width:1280px;margin:48px auto 0;padding-top:24px;
+  max-width:1280px;margin:36px auto 0;padding-top:24px;
   border-top:1px solid rgba(255,255,255,.08);
   display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;color:rgba(245,240,232,.4);flex-wrap:wrap;gap:12px;
+  font-size:12px;color:rgba(245,240,232,.4);flex-wrap:wrap;gap:14px;
 }
+.footer-legal{display:flex;flex-wrap:wrap;gap:18px}
+.footer-legal a{color:rgba(245,240,232,.4);font-size:12.5px;font-weight:400;text-decoration:none}
+.footer-legal a:hover{color:var(--cream)}
 @media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:1/-1}}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -855,8 +865,13 @@ footer{
       </ul>
     </div>
   </div>
+  <div class="footer-apps">
+    <a href="coming-soon.html" class="app-btn"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+    <a href="coming-soon.html" class="app-btn"><svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.491 12l2.207-2.49zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
+  </div>
   <div class="footer-bot">
     <span>© 2026 Nabad. Built in Beirut.</span>
+    <div class="footer-legal"><a href="terms.html">Terms of use</a><a href="privacy.html">Privacy policy</a><a href="cookies.html">Cookies</a></div>
     <span>studionabad@gmail.com</span>
   </div>
 </footer>

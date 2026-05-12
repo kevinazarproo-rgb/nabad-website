@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy policy — Nabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#EDEBE6;--bg-soft:#E2DFD8;
+  --ink:#1E1A17;--slate:#717D8A;
+  --line:rgba(30,26,23,0.12);
+  --terra:#B06E52;--terra-d:#8E5740;--terra-l:#F6E9E1;
+  --f-sans:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+
+.nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-logo{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.nav-burger{width:40px;height:40px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:transparent}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+
+.menu{position:fixed;inset:0;z-index:70;background:var(--bg);display:none;flex-direction:column;padding:14px 0 24px}
+.menu.open{display:flex}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:0 20px 20px}
+.menu-close{font-size:28px;font-weight:400;line-height:1;background:transparent;color:var(--ink)}
+.menu-list{display:flex;flex-direction:column;flex:1}
+.menu-list a{padding:18px 20px;font-size:20px;font-weight:600;border-bottom:1px solid var(--line)}
+.menu-list a:first-child{border-top:1px solid var(--line)}
+
+.page-hero{background:var(--terra-l);padding:48px 0 32px}
+.page-hero h1{font-size:clamp(32px,7vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.05}
+.page-hero p{font-size:14.5px;color:var(--slate);margin-top:14px}
+
+.content{padding:48px 0 64px}
+.content .inner{max-width:780px}
+.content h2{font-size:clamp(20px,4vw,26px);font-weight:800;letter-spacing:-.01em;margin:32px 0 12px}
+.content h2:first-child{margin-top:0}
+.content p, .content li{color:var(--ink);font-size:16px;line-height:1.65;margin-bottom:10px}
+.content ul{padding-left:22px;display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.content a{color:var(--terra);text-decoration:underline}
+
+.footer{background:#000;color:#fff;padding:56px 0 40px}
+.footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px}
+@media(min-width:800px){.footer-grid{grid-template-columns:repeat(4,1fr);gap:48px}}
+.footer h4{font-size:22px;font-weight:700;margin-bottom:18px;letter-spacing:-.01em}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.footer a{color:#fff;font-size:17px;font-weight:400}
+.footer a:hover{text-decoration:underline}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#888}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo">Nabad</a>
+  <button class="nav-burger" onclick="document.getElementById('menu').classList.add('open')"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu">
+  <div class="menu-top">
+    <span class="nav-logo">Nabad</span>
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
+  </div>
+  <div class="menu-list">
+    <a href="index.html">Home</a>
+    <a href="plans.html">Plans</a>
+    <a href="index.html#how">How it works</a>
+    <a href="partners.html">For studios</a>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Privacy policy</h1>
+    <p>Last updated: May 2026</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap"><div class="inner">
+    <h2>1. Who we are</h2>
+    <p>Nabad ("we", "us") is a fitness membership platform based in Beirut, Lebanon. We're responsible for the personal data described in this policy.</p>
+
+    <h2>2. Data we collect</h2>
+    <p>We collect data you give us and data generated as you use Nabad:</p>
+    <ul>
+      <li><strong>Account data:</strong> name, email, phone, password.</li>
+      <li><strong>Payment data:</strong> handled by our payment processor — we never store your full card number.</li>
+      <li><strong>Booking data:</strong> classes you book, attend, or cancel.</li>
+      <li><strong>Device data:</strong> device type, OS, app version, approximate location.</li>
+      <li><strong>Communications:</strong> messages you send to support.</li>
+    </ul>
+
+    <h2>3. How we use your data</h2>
+    <ul>
+      <li>To run your membership and process bookings.</li>
+      <li>To process payments and prevent fraud.</li>
+      <li>To send you class reminders, receipts, and product updates.</li>
+      <li>To improve the app and recommend studios you'll like.</li>
+      <li>To comply with legal obligations.</li>
+    </ul>
+
+    <h2>4. Sharing</h2>
+    <p>We share the minimum needed to make Nabad work:</p>
+    <ul>
+      <li><strong>Partner studios:</strong> your name and booking details when you reserve a class.</li>
+      <li><strong>Service providers:</strong> payments, hosting, analytics, and email — under contract to protect your data.</li>
+      <li><strong>Legal:</strong> when required by law.</li>
+    </ul>
+    <p>We do not sell your personal data.</p>
+
+    <h2>5. Cookies &amp; tracking</h2>
+    <p>The website and app use cookies and similar technologies to keep you signed in, remember preferences, and measure usage. You can disable non-essential cookies in your browser.</p>
+
+    <h2>6. Data retention</h2>
+    <p>We keep your account data while your membership is active and for a reasonable period after cancellation to comply with legal and accounting requirements.</p>
+
+    <h2>7. Your rights</h2>
+    <p>You can request access to your data, correction of inaccurate data, deletion of your account, or a copy of your data. Email <a href="mailto:hello@nabad.studio">hello@nabad.studio</a> and we'll respond within 30 days.</p>
+
+    <h2>8. Security</h2>
+    <p>We use industry-standard measures to protect your data — encrypted connections, hashed passwords, restricted access. No system is 100% secure, but we take this seriously.</p>
+
+    <h2>9. Changes</h2>
+    <p>If we materially change this policy, we'll notify you via the app or email before it takes effect.</p>
+
+    <h2>10. Contact</h2>
+    <p>For privacy questions or requests: <a href="mailto:hello@nabad.studio">hello@nabad.studio</a>.</p>
+  </div></div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>For movers</h4><ul><li><a href="plans.html">Plans</a></li><li><a href="index.html#how">How it works</a></li></ul></div>
+      <div><h4>For studios</h4><ul><li><a href="partners.html#partner-form">Become a partner</a></li><li><a href="partners.html#calc">Calculate revenue</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="mailto:hello@nabad.studio">Contact</a></li><li><a href="#">Press</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="help.html">Help</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Nabad. All rights reserved.</span><span>Made in Beirut</span></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of service — Nabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#EDEBE6;--bg-soft:#E2DFD8;
+  --ink:#1E1A17;--slate:#717D8A;
+  --line:rgba(30,26,23,0.12);
+  --terra:#B06E52;--terra-d:#8E5740;--terra-l:#F6E9E1;
+  --f-sans:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+
+.nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-logo{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.nav-burger{width:40px;height:40px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:transparent}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+
+.menu{position:fixed;inset:0;z-index:70;background:var(--bg);display:none;flex-direction:column;padding:14px 0 24px}
+.menu.open{display:flex}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:0 20px 20px}
+.menu-close{font-size:28px;font-weight:400;line-height:1;background:transparent;color:var(--ink)}
+.menu-list{display:flex;flex-direction:column;flex:1}
+.menu-list a{padding:18px 20px;font-size:20px;font-weight:600;border-bottom:1px solid var(--line)}
+.menu-list a:first-child{border-top:1px solid var(--line)}
+
+.page-hero{background:var(--terra-l);padding:48px 0 32px}
+.page-hero h1{font-size:clamp(32px,7vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.05}
+.page-hero p{font-size:14.5px;color:var(--slate);margin-top:14px}
+
+.content{padding:48px 0 64px}
+.content .inner{max-width:780px}
+.content h2{font-size:clamp(20px,4vw,26px);font-weight:800;letter-spacing:-.01em;margin:32px 0 12px}
+.content h2:first-child{margin-top:0}
+.content p, .content li{color:var(--ink);font-size:16px;line-height:1.65;margin-bottom:10px}
+.content ul{padding-left:22px;display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.content a{color:var(--terra);text-decoration:underline}
+
+.footer{background:#000;color:#fff;padding:56px 0 40px}
+.footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px}
+@media(min-width:800px){.footer-grid{grid-template-columns:repeat(4,1fr);gap:48px}}
+.footer h4{font-size:22px;font-weight:700;margin-bottom:18px;letter-spacing:-.01em}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.footer a{color:#fff;font-size:17px;font-weight:400}
+.footer a:hover{text-decoration:underline}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#888}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo">Nabad</a>
+  <button class="nav-burger" onclick="document.getElementById('menu').classList.add('open')"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu">
+  <div class="menu-top">
+    <span class="nav-logo">Nabad</span>
+    <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
+  </div>
+  <div class="menu-list">
+    <a href="index.html">Home</a>
+    <a href="plans.html">Plans</a>
+    <a href="index.html#how">How it works</a>
+    <a href="partners.html">For studios</a>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Terms of service</h1>
+    <p>Last updated: May 2026</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap"><div class="inner">
+    <h2>1. Acceptance of terms</h2>
+    <p>By creating a Nabad account or using our services, you agree to these terms. If you do not agree, please do not use Nabad.</p>
+
+    <h2>2. Your membership</h2>
+    <p>Nabad is a monthly credit-based membership that gives you access to partner studios in Lebanon. Your plan renews automatically each month until you cancel from the app.</p>
+    <ul>
+      <li>You must be at least 16 years old to sign up.</li>
+      <li>You are responsible for keeping your login credentials secure.</li>
+      <li>Memberships are personal and non-transferable.</li>
+    </ul>
+
+    <h2>3. Credits</h2>
+    <p>Each plan includes a monthly credit allowance. Credit costs per class are shown in the app before booking and vary by studio, time, and demand. Unused credits roll over for 30 days on monthly plans.</p>
+
+    <h2>4. Bookings, cancellations, and no-shows</h2>
+    <p>Cancel at least 12 hours before class to recover your credits. Late cancellations and no-shows forfeit the credits used and may incur a fee set by the partner studio.</p>
+
+    <h2>5. Pausing &amp; cancellation</h2>
+    <p>You can pause or cancel your plan anytime from the app. Cancellations take effect at the end of the current billing cycle. We do not refund partial months.</p>
+
+    <h2>6. Conduct at studios</h2>
+    <p>You agree to follow each partner studio's house rules, arrive on time, and treat staff and other members with respect. We reserve the right to suspend accounts that abuse the service or harm partner studios.</p>
+
+    <h2>7. Limitation of liability</h2>
+    <p>Nabad acts as a booking platform between you and the partner studios. We are not responsible for the quality, safety, or availability of any class. Participation in physical activity carries inherent risks; you participate at your own risk.</p>
+
+    <h2>8. Changes to the service</h2>
+    <p>We may update these terms, prices, or features. We'll give reasonable notice of material changes via the app or email.</p>
+
+    <h2>9. Governing law</h2>
+    <p>These terms are governed by the laws of Lebanon. Any disputes will be handled in the courts of Beirut.</p>
+
+    <h2>10. Contact</h2>
+    <p>Questions about these terms? Email <a href="mailto:hello@nabad.studio">hello@nabad.studio</a>.</p>
+  </div></div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>For movers</h4><ul><li><a href="plans.html">Plans</a></li><li><a href="index.html#how">How it works</a></li></ul></div>
+      <div><h4>For studios</h4><ul><li><a href="partners.html#partner-form">Become a partner</a></li><li><a href="partners.html#calc">Calculate revenue</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="mailto:hello@nabad.studio">Contact</a></li><li><a href="#">Press</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="help.html">Help</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Nabad. All rights reserved.</span><span>Made in Beirut</span></div>
+  </div>
+</footer>
+</body>
+</html>

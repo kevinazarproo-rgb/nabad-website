@@ -6,7 +6,7 @@
 <title>Nabad for Studios — Fill your empty spots</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --cream:#F5F0E8;
@@ -50,8 +50,8 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   padding:14px 48px;
   border-bottom:1px solid var(--line);
 }
-.logo{font-family:var(--f-serif);font-size:26px;font-weight:400;letter-spacing:-.02em}
-.logo em{font-style:italic;color:var(--terra)}
+.logo{font-family:'Manrope',var(--f-sans);font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.logo em{font-style:normal;color:inherit;font-weight:800}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:14px;font-weight:500}
 .nav-cta{padding:10px 22px;background:var(--ink);color:var(--cream);border-radius:100px;font-size:14px;font-weight:500;transition:transform .2s, background .2s}
 .nav-cta:hover{transform:translateY(-1px);background:var(--terra)}
@@ -486,7 +486,7 @@ footer{
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="index.html" class="logo">N<em>abad</em></a>
+  <a href="index.html" class="logo">Nabad</a>
   <div class="nav-links">
     <a href="index.html#how">How it works</a>
     <a href="#model">Model</a>
@@ -502,7 +502,7 @@ footer{
 <!-- MENU OVERLAY -->
 <div class="menu-overlay" id="menu">
   <div class="menu-top">
-    <a href="index.html" class="logo">N<em>abad</em></a>
+    <a href="index.html" class="logo">Nabad</a>
     <button class="menu-close" aria-label="Close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
   </div>
   <div class="menu-list">
@@ -767,7 +767,7 @@ footer{
       </div>
       <div class="pf-field">
         <label for="pf-type">Business type *</label>
-        <select id="pf-type" required>
+        <select id="pf-type" required onchange="document.getElementById('pf-type-other').style.display=this.value==='Other'?'flex':'none'">
           <option value="">Please select</option>
           <option>Pilates studio</option>
           <option>Yoga studio</option>
@@ -780,9 +780,13 @@ footer{
           <option>Other</option>
         </select>
       </div>
+      <div class="pf-field" id="pf-type-other" style="display:none">
+        <label for="pf-type-text">Tell us your business type *</label>
+        <input id="pf-type-text" type="text" placeholder="e.g. climbing gym, dance fitness…"/>
+      </div>
       <div class="pf-field">
         <label for="pf-pos">What is your current booking &amp; POS system? *</label>
-        <select id="pf-pos" required>
+        <select id="pf-pos" required onchange="document.getElementById('pf-pos-other').style.display=this.value==='Other'?'flex':'none'">
           <option value="">Please select</option>
           <option>Mindbody</option>
           <option>Glofox</option>
@@ -793,9 +797,13 @@ footer{
           <option>None</option>
         </select>
       </div>
+      <div class="pf-field" id="pf-pos-other" style="display:none">
+        <label for="pf-pos-text">Which booking / POS system? *</label>
+        <input id="pf-pos-text" type="text" placeholder="System name"/>
+      </div>
       <div class="pf-field">
         <label for="pf-city">Location *</label>
-        <select id="pf-city" required>
+        <select id="pf-city" required onchange="document.getElementById('pf-city-other').style.display=this.value==='Other'?'flex':'none'">
           <option value="">Please select</option>
           <option>Beirut</option>
           <option>Jounieh</option>
@@ -804,6 +812,10 @@ footer{
           <option>Saida</option>
           <option>Other</option>
         </select>
+      </div>
+      <div class="pf-field" id="pf-city-other" style="display:none">
+        <label for="pf-city-text">Which city / area? *</label>
+        <input id="pf-city-text" type="text" placeholder="City or neighborhood"/>
       </div>
       <div class="pf-field">
         <label for="pf-phone">Phone *</label>
@@ -831,7 +843,7 @@ footer{
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo">N<em>abad</em></a>
+      <a href="index.html" class="logo">Nabad</a>
       <p>One membership. Every studio in Lebanon. The fastest way to fill your empty spots.</p>
     </div>
     <div class="footer-col">

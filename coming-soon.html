@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>App coming soon — Nabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#EDEBE6;--ink:#1E1A17;--slate:#717D8A;
+  --line:rgba(30,26,23,0.12);
+  --terra:#B06E52;--terra-d:#8E5740;--terra-l:#F6E9E1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-logo{font-size:24px;font-weight:800;letter-spacing:-.03em}
+
+.center{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:48px 24px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--terra-l);color:var(--terra-d);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra)}
+h1{font-size:clamp(36px,9vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.02;max-width:14ch;text-wrap:balance}
+h1 em{font-style:italic;color:var(--terra);font-weight:400}
+p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1.5}
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;width:100%;max-width:340px}
+.btn{display:inline-block;text-align:center;padding:16px 24px;border-radius:100px;font-size:15.5px;font-weight:700;transition:background .15s, transform .15s}
+.btn-primary{background:var(--terra);color:#fff}
+.btn-primary:hover{background:var(--terra-d);transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo">Nabad</a>
+</header>
+
+<section class="center">
+  <span class="badge">Coming soon</span>
+  <h1>The Nabad app is <em>almost here</em>.</h1>
+  <p>We're putting the finishing touches on the iOS and Android apps. Want to be among the first to know when we launch?</p>
+  <div class="actions">
+    <a href="mailto:hello@nabad.studio?subject=Notify%20me%20when%20Nabad%20launches" class="btn btn-primary">Notify me at launch</a>
+    <a href="index.html" class="btn btn-ghost">Back to home</a>
+  </div>
+</section>
+
+</body>
+</html>

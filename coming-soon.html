@@ -45,6 +45,8 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
 }
 .notify-form input:focus{border-color:var(--terra)}
 .notify-form .field{display:flex;flex-direction:column;gap:6px}
+.phone-row{display:grid;grid-template-columns:140px 1fr;gap:8px}
+.phone-row select{padding:14px 8px}
 .notify-success{display:none;margin-top:24px;padding:20px;background:var(--terra-l);color:var(--terra-d);border-radius:14px;font-weight:600;font-size:15px}
 .notify-success.show{display:block}
 </style>
@@ -70,7 +72,27 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
       </div>
       <div class="field">
         <label for="np">Phone (optional)</label>
-        <input id="np" type="tel" placeholder="+961"/>
+        <div class="phone-row">
+          <select id="nc" aria-label="Country code">
+            <option value="+961" selected>🇱🇧 +961</option>
+            <option value="+971">🇦🇪 +971</option>
+            <option value="+966">🇸🇦 +966</option>
+            <option value="+974">🇶🇦 +974</option>
+            <option value="+965">🇰🇼 +965</option>
+            <option value="+973">🇧🇭 +973</option>
+            <option value="+968">🇴🇲 +968</option>
+            <option value="+962">🇯🇴 +962</option>
+            <option value="+963">🇸🇾 +963</option>
+            <option value="+20">🇪🇬 +20</option>
+            <option value="+90">🇹🇷 +90</option>
+            <option value="+33">🇫🇷 +33</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+61">🇦🇺 +61</option>
+          </select>
+          <input id="np" type="tel" placeholder="70 123 456"/>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary">Notify me</button>
     </form>

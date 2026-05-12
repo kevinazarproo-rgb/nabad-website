@@ -87,6 +87,9 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .pf-field textarea{resize:vertical;min-height:90px}
 .pf-row{display:grid;grid-template-columns:1fr;gap:18px}
 @media(min-width:600px){.pf-row{grid-template-columns:1fr 1fr}}
+.pf-phone{display:grid;grid-template-columns:160px 1fr;gap:8px}
+.pf-phone select{padding:14px 8px}
+@media(max-width:480px){.pf-phone{grid-template-columns:140px 1fr}}
 .pf-check{display:flex;gap:10px;align-items:flex-start;margin:6px 0 18px;font-size:13.5px;color:var(--ink);line-height:1.45}
 .pf-check input{margin-top:3px;flex-shrink:0}
 .pf-submit{
@@ -819,7 +822,27 @@ footer{
       </div>
       <div class="pf-field">
         <label for="pf-phone">Phone *</label>
-        <input id="pf-phone" type="tel" required placeholder="+961"/>
+        <div class="pf-phone">
+          <select id="pf-country" aria-label="Country code">
+            <option value="+961" selected>🇱🇧 Lebanon +961</option>
+            <option value="+971">🇦🇪 UAE +971</option>
+            <option value="+966">🇸🇦 Saudi Arabia +966</option>
+            <option value="+974">🇶🇦 Qatar +974</option>
+            <option value="+965">🇰🇼 Kuwait +965</option>
+            <option value="+973">🇧🇭 Bahrain +973</option>
+            <option value="+968">🇴🇲 Oman +968</option>
+            <option value="+962">🇯🇴 Jordan +962</option>
+            <option value="+963">🇸🇾 Syria +963</option>
+            <option value="+20">🇪🇬 Egypt +20</option>
+            <option value="+90">🇹🇷 Turkey +90</option>
+            <option value="+33">🇫🇷 France +33</option>
+            <option value="+44">🇬🇧 UK +44</option>
+            <option value="+49">🇩🇪 Germany +49</option>
+            <option value="+1">🇺🇸 USA / Canada +1</option>
+            <option value="+61">🇦🇺 Australia +61</option>
+          </select>
+          <input id="pf-phone" type="tel" required placeholder="70 123 456"/>
+        </div>
       </div>
       <label class="pf-check">
         <input type="checkbox" required/>

@@ -27,12 +27,26 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 h1{font-size:clamp(36px,9vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.02;max-width:14ch;text-wrap:balance}
 h1 em{font-style:italic;color:var(--terra);font-weight:400}
 p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1.5}
-.actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;width:100%;max-width:340px}
-.btn{display:inline-block;text-align:center;padding:16px 24px;border-radius:100px;font-size:15.5px;font-weight:700;transition:background .15s, transform .15s}
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;width:100%;max-width:380px}
+.btn{display:block;width:100%;text-align:center;padding:16px 24px;border-radius:100px;font-size:15.5px;font-weight:700;transition:background .15s, transform .15s;border:none;cursor:pointer}
 .btn-primary{background:var(--terra);color:#fff}
 .btn-primary:hover{background:var(--terra-d);transform:translateY(-1px)}
-.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
 .btn-ghost:hover{background:var(--ink);color:#fff}
+
+.notify-form{display:none;flex-direction:column;gap:12px;width:100%;text-align:left}
+.notify-form.open{display:flex}
+.notify-form label{font-size:13px;font-weight:600;color:var(--ink)}
+.notify-form input{
+  font:inherit;color:var(--ink);
+  border:1.5px solid rgba(30,26,23,.18);
+  background:#fff;padding:14px 16px;border-radius:12px;
+  outline:none;transition:border-color .15s;width:100%;
+}
+.notify-form input:focus{border-color:var(--terra)}
+.notify-form .field{display:flex;flex-direction:column;gap:6px}
+.notify-success{display:none;margin-top:24px;padding:20px;background:var(--terra-l);color:var(--terra-d);border-radius:14px;font-weight:600;font-size:15px}
+.notify-success.show{display:block}
 </style>
 </head>
 <body>
@@ -45,10 +59,26 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
   <span class="badge">Coming soon</span>
   <h1>The Nabad app is <em>almost here</em>.</h1>
   <p>We're putting the finishing touches on the iOS and Android apps. Want to be among the first to know when we launch?</p>
+
   <div class="actions">
-    <a href="mailto:hello@nabad.studio?subject=Notify%20me%20when%20Nabad%20launches" class="btn btn-primary">Notify me at launch</a>
+    <button type="button" class="btn btn-primary" id="notifyBtn" onclick="document.getElementById('notifyForm').classList.add('open');this.style.display='none'">Notify me at launch</button>
+
+    <form class="notify-form" id="notifyForm" onsubmit="event.preventDefault();document.getElementById('notifySuccess').classList.add('show');this.reset();this.classList.remove('open');">
+      <div class="field">
+        <label for="ne">Email *</label>
+        <input id="ne" type="email" required placeholder="you@example.com"/>
+      </div>
+      <div class="field">
+        <label for="np">Phone (optional)</label>
+        <input id="np" type="tel" placeholder="+961"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Notify me</button>
+    </form>
+
     <a href="index.html" class="btn btn-ghost">Back to home</a>
   </div>
+
+  <div class="notify-success" id="notifySuccess">You're on the list — we'll be in touch at launch.</div>
 </section>
 
 </body>

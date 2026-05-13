@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/anim.css"/>
 <style>
 :root{
   --bg:#EDEBE6;--ink:#1E1A17;--slate:#717D8A;
@@ -99,12 +100,12 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 <section class="page-hero">
   <div class="wrap">
-    <h1>Press &amp; media</h1>
-    <p>Working on a story about Nabad or the fitness scene in Lebanon? Drop your email and a quick note — we'll get back to you within 48 hours.</p>
+    <h1 class="fx-up fx-up-1">Press &amp; media</h1>
+    <p class="fx-up fx-up-2">Working on a story about Nabad or the fitness scene in Lebanon? Drop your email and a quick note — we'll get back to you within 48 hours.</p>
   </div>
 </section>
 
-<section class="content">
+<section class="content reveal">
   <div class="wrap">
     <div class="inner">
       <form onsubmit="event.preventDefault();alert('Thanks! We\'ll reach out within 48 hours.');this.reset();">
@@ -126,7 +127,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </section>
 
-<footer class="footer">
+<footer class="footer reveal">
   <div class="wrap">
     <div class="footer-grid">
       <div><h4>For movers</h4><ul><li><a href="plans.html">Plans</a></li><li><a href="index.html#how">How it works</a></li></ul></div>
@@ -141,5 +142,6 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     <div class="footer-bottom"><span>&copy; 2026 Nabad. All rights reserved.</span><div class="footer-legal"><a href="terms.html">Terms of use</a><a href="privacy.html">Privacy policy</a><a href="cookies.html">Cookies</a></div><span>Made in Beirut</span></div>
   </div>
 </footer>
+<script src="assets/anim.js" defer></script>
 </body>
 </html>

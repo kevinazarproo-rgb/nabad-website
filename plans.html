@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/anim.css"/>
 <style>
 :root{
   --bg:#EDEBE6;
@@ -197,13 +198,13 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 <!-- HEADER -->
 <section class="plans-hero">
   <div class="wrap">
-    <h1>Available plans</h1>
-    <p>Learn more about credits <a href="index.html#how">here</a>.</p>
+    <h1 class="fx-up fx-up-1">Available plans</h1>
+    <p class="fx-up fx-up-2">Learn more about credits <a href="index.html#how">here</a>.</p>
   </div>
 </section>
 
 <!-- CARDS -->
-<div class="cards-wrap">
+<div class="cards-wrap reveal">
   <div class="cards" id="cards">
     <div class="plan-card">
       <div class="plan-credits">15 credits</div>
@@ -252,7 +253,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 </div>
 
 <!-- CHECKLIST -->
-<section class="checklist">
+<section class="checklist reveal">
   <ul>
     <li>Book classes &amp; appointments at every Nabad studio in Lebanon</li>
     <li>Cancel or change your renewal plan at any time</li>
@@ -261,7 +262,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq reveal">
   <div class="wrap">
     <h2>Frequently asked questions</h2>
     <div class="faq-list">
@@ -278,7 +279,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer reveal">
   <div class="wrap">
     <div class="footer-grid">
       <div>
@@ -342,5 +343,6 @@ cards.addEventListener('scroll', ()=>{
   dots.forEach((d,j)=>d.classList.toggle('on', j===i));
 });
 </script>
+<script src="assets/anim.js" defer></script>
 </body>
 </html>

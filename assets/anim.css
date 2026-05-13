@@ -1,0 +1,73 @@
+/* Nabad — shared animations */
+
+@keyframes nbFadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes nbFadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes nbImgReveal{
+  from{opacity:0;transform:scale(1.08)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes nbSlideInRight{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes nbSlideOutLeft{
+  from{opacity:1;transform:translateX(0)}
+  to{opacity:0;transform:translateX(-40px)}
+}
+@keyframes nbPageIn{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Page-load entrance (applied to body of every page) */
+body{animation:nbPageIn .55s cubic-bezier(.2,.7,.2,1) both}
+
+/* On-load fade up — drop class on any element */
+.fx-up{opacity:0;animation:nbFadeUp .8s cubic-bezier(.2,.7,.2,1) forwards}
+.fx-up-1{animation-delay:.05s}
+.fx-up-2{animation-delay:.15s}
+.fx-up-3{animation-delay:.25s}
+.fx-up-4{animation-delay:.35s}
+.fx-up-5{animation-delay:.45s}
+.fx-up-6{animation-delay:.55s}
+
+.fx-in{opacity:0;animation:nbFadeIn .7s ease forwards}
+.fx-img{opacity:0;animation:nbImgReveal .9s cubic-bezier(.2,.7,.2,1) forwards}
+
+/* Hero-grid stagger (used on home) */
+.hero-grid img{opacity:0;animation:nbImgReveal .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-grid img:nth-child(1){animation-delay:.05s}
+.hero-grid img:nth-child(2){animation-delay:.15s}
+.hero-grid img:nth-child(3){animation-delay:.25s}
+.hero-grid img:nth-child(4){animation-delay:.35s}
+.hero-grid img:nth-child(5){animation-delay:.45s}
+.hero-grid img:nth-child(6){animation-delay:.55s}
+
+/* Scroll-reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+.reveal-d4{transition-delay:.32s}
+
+/* Button hover lift */
+.btn-primary,.btn-outline{transition:background .15s, transform .15s, box-shadow .15s}
+.btn-primary:hover,.btn-outline:hover{transform:translateY(-2px)}
+
+/* Onboarding slide transitions */
+.onb-body{overflow:hidden}
+.onb-slide{animation:nbSlideInRight .45s cubic-bezier(.2,.7,.2,1) both}
+.onb-slide.out{animation:nbSlideOutLeft .3s cubic-bezier(.2,.7,.2,1) both}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .fx-up,.fx-in,.fx-img,.hero-grid img{opacity:1}
+}

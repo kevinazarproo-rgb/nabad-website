@@ -116,6 +116,15 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   .btn-primary,.btn-outline{width:auto;padding-left:38px;padding-right:38px}
   .hero h1{max-width:18ch}
 }
+@media(min-width:1024px){
+  .hero{padding:0 0 64px}
+  .hero-grid{aspect-ratio:auto;max-height:none;height:560px;gap:10px}
+  .hero-body{max-width:1200px;margin:0 auto;padding:64px 48px 0;align-items:center;text-align:center}
+  .hero h1{font-size:clamp(56px,5.5vw,84px);max-width:22ch}
+  .hero p{font-size:19px;max-width:54ch;text-align:center}
+  .hero-ctas{justify-content:center}
+  .hero-link{font-size:16px}
+}
 
 /* ONBOARDING OVERLAY */
 .onb{

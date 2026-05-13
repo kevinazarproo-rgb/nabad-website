@@ -7,20 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 /* ── TOKENS ── */
 :root {
   --terra:      #B06E52;
   --terra-l:    #C98B72;
-  --terra-d:    #8E5740;
+  --terra-d:    #8A5540;
   --slate:      #717D8A;
   --offwhite:   #EDEBE6;
   --warm:       #F5F2EC;
   --ink:        #1E1A17;
   --ink2:       #4A3F38;
-  --f-display:  'Manrope', -apple-system, sans-serif;
-  --f-body:     'Manrope', -apple-system, sans-serif;
+  --f-display:  'Cormorant Garamond', serif;
+  --f-body:     'DM Sans', sans-serif;
   --section-pad-y: 160px;
   --section-pad-x: 120px;
 }
@@ -70,44 +70,12 @@ body[data-density="spacious"] { --section-pad-y: 220px; --section-pad-x: 140px; 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--offwhite);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--offwhite);
   font-family: var(--f-body);
   overflow-x: hidden;
   cursor: default;
 }
-/* Sans-serif bold headlines to match the rest of the site */
-.hero-title, .section-title, .cta-title, .modal-title,
-h1, h2, h3 {
-  font-family: 'Manrope', -apple-system, sans-serif !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.025em !important;
-}
-.hero-title em, .section-title em, .cta-title em, .modal-title em {
-  font-style: italic; font-weight: 400 !important; color: var(--terra);
-}
-/* Default text color */
-.hero-content, .hero-content *, p, .section-eyebrow, .stat-label, .stat-desc {
-  color: var(--ink);
-}
-/* Brighten sections that were dark-on-dark */
-#hero, .hero-bg, .hero-grid { background: var(--offwhite) !important; }
-#stats, #testimonials, #cta, .stats-section { background: var(--warm) !important; color: var(--ink) !important; }
-#stats *, #testimonials *, #cta *, .stats-section * { color: var(--ink); }
-.stat-num, .cta-title { color: var(--ink) !important; }
-.cta-eyebrow { color: var(--slate) !important; }
-.cta-eyebrow::before, .cta-eyebrow::after { background: var(--slate) !important; }
-.cta-sub, .stat-desc { color: var(--ink2) !important; }
-.cta-btn { background: var(--ink) !important; color: var(--offwhite) !important; }
-.cta-btn:hover { background: var(--terra) !important; color: #fff !important; }
-.contact-label { color: var(--slate) !important; }
-.contact-val, .contact-val a { color: var(--ink) !important; }
-footer { background: var(--ink) !important; color: var(--offwhite) !important; border-top:1px solid rgba(30,26,23,0.08) !important; }
-footer * { color: var(--offwhite) !important; }
-/* Nav over light bg */
-#main-nav .nav-logo { color: var(--ink) !important; font-family:'Manrope',sans-serif !important; font-weight:800 !important; letter-spacing:-0.03em !important; }
-#main-nav .nav-cta { background: var(--ink) !important; color: var(--offwhite) !important; }
-#main-nav.scrolled { background: rgba(237,235,230,0.92) !important; backdrop-filter: blur(14px); }
 
 /* ── SCROLL REVEAL ── */
 .reveal {

@@ -313,6 +313,77 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
 }
+
+/* ── WHY PARTNER WITH NABAD ── */
+#why {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background: var(--ink);
+  color: var(--offwhite);
+  position: relative;
+  overflow: hidden;
+}
+#why .section-tag { color: var(--terra-l); }
+#why .section-tag::before { background: var(--terra-l); }
+#why .why-intro {
+  font-family: var(--f-body);
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(237,235,230,0.7);
+  max-width: 760px;
+  margin-top: 24px;
+  margin-bottom: 80px;
+}
+#why .why-intro em { font-style:normal; color: var(--terra-l); font-weight: 500; }
+#why .why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.why-card {
+  background: rgba(237,235,230,0.04);
+  border: 1px solid rgba(237,235,230,0.1);
+  border-radius: 16px;
+  padding: 44px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(176,110,82,0.45);
+  background: rgba(237,235,230,0.06);
+}
+.why-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(176,110,82,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terra-l);
+  flex-shrink: 0;
+}
+.why-icon svg { width: 28px; height: 28px; }
+.why-title {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 1.8vw, 28px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--offwhite);
+  letter-spacing: -0.01em;
+}
+.why-title em { font-style: italic; color: var(--terra-l); }
+.why-desc {
+  font-family: var(--f-body);
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(237,235,230,0.7);
+}
+
 #stats::before {
   content: '';
   position: absolute;
@@ -2294,6 +2365,15 @@ footer {
     height: 240px;
   }
 
+  /* WHY PARTNER */
+  #why { padding: 80px 24px; }
+  #why .why-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  #why .why-intro { margin-bottom: 48px; font-size: 17px; }
+  .why-card { padding: 32px 28px; }
+
   /* HOW IT WORKS */
   #how { padding: 80px 24px; }
   #how .steps-row {
@@ -2572,6 +2652,38 @@ footer {
     <div class="stat-label">Revenue from spots<br/>that were empty before</div>
   </div>
 </div>
+
+<!-- WHY PARTNER WITH NABAD -->
+<section id="why">
+  <div class="reveal">
+    <div class="section-tag">Why partner with Nabad</div>
+    <h2 class="section-title">Make every<br/>spot <em>count.</em></h2>
+    <p class="why-intro">Studios in Lebanon fill on average just <em>37%</em> of their capacity directly. The rest is revenue left on the table — and Nabad is built to recover it, on your terms.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal" style="transition-delay:0.0s">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="14" height="3" rx="1.5" fill="currentColor" opacity="0.45"/><rect x="3" y="10.5" width="18" height="3" rx="1.5" fill="currentColor" opacity="0.65"/><rect x="3" y="16" width="11" height="3" rx="1.5" fill="currentColor"/></svg>
+      </div>
+      <div class="why-title">Fill <em>empty spots</em></div>
+      <div class="why-desc">Nabad is built to fill available class spots and appointment times with high-intent clients — bringing you revenue from bookings that would have otherwise gone unfilled, so no money is left on the table.</div>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.1s">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 13l3-3 3 3 4-5 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="why-title">Grow <em>incremental revenue</em> while protecting your regulars</div>
+      <div class="why-desc">Nabad only fills your unused spots — so your direct members can still book their favorite times. Extra reservations put more money in your pocket without adding extra work.</div>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.2s">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 10v4l9 5V5L3 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8c1.5 1 1.5 7 0 8M19 6c2.5 2 2.5 10 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="why-title">Reach <em>new clients</em></div>
+      <div class="why-desc">The majority of Nabad members discover a studio for the first time through us. That means more fresh faces walking through your door, and more chances to grow your client list.</div>
+    </div>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section id="how">

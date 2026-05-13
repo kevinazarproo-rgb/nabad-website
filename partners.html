@@ -314,6 +314,53 @@ nav.scrolled {
   overflow: hidden;
 }
 
+/* ── GET STARTED (photo-led journey) ── */
+#getstarted {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background: var(--warm);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+#getstarted .gs-head { text-align: center; max-width: 880px; margin: 0 auto 80px; }
+#getstarted .section-tag { color: var(--terra); justify-content: center; }
+#getstarted .section-tag::before { background: var(--terra); }
+#getstarted .section-title { color: var(--ink); text-align: center; margin-bottom: 0; }
+#getstarted .gs-list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.gs-step { display: flex; flex-direction: column; gap: 28px; }
+.gs-img {
+  width: 100%;
+  aspect-ratio: 16/11;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(30,26,23,0.05);
+}
+.gs-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gs-title {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.gs-title em { font-style: italic; color: var(--terra); }
+.gs-desc {
+  font-family: var(--f-body);
+  font-size: 17.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(30,26,23,0.7);
+  max-width: 640px;
+}
+.gs-desc a { color: var(--terra); text-decoration: underline; font-weight: 500; }
+
 /* ── WHY PARTNER WITH NABAD ── */
 #why {
   padding: var(--section-pad-y) var(--section-pad-x);
@@ -2365,6 +2412,11 @@ footer {
     height: 240px;
   }
 
+  /* GET STARTED */
+  #getstarted { padding: 80px 24px; }
+  #getstarted .gs-step { gap: 20px; }
+  #getstarted .gs-img { aspect-ratio: 4/3; }
+
   /* WHY PARTNER */
   #why { padding: 80px 24px; }
   #why .why-grid {
@@ -3188,6 +3240,31 @@ footer {
     </div>
 
     <div class="calc-disclaimer">Approximate figures — your real numbers may be even higher.</div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section id="getstarted">
+  <div class="gs-head reveal">
+    <div class="section-tag">Get started</div>
+    <h2 class="section-title">Three steps to <em>go live.</em></h2>
+  </div>
+  <div class="gs-list">
+    <div class="gs-step reveal">
+      <div class="gs-img"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&q=75&auto=format&fit=crop" alt=""/></div>
+      <div class="gs-title">Submit your <em>information</em></div>
+      <div class="gs-desc"><a href="#" onclick="event.preventDefault();openModal()">Fill out the form</a> to tell us a bit about your studio. This helps us kick off the onboarding process.</div>
+    </div>
+    <div class="gs-step reveal">
+      <div class="gs-img"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=75&auto=format&fit=crop" alt=""/></div>
+      <div class="gs-title">Go <em>live</em></div>
+      <div class="gs-desc">During onboarding we'll build a custom profile to showcase your space, and unlock the dashboard, reporting, and partner guidance to start attracting new clients.</div>
+    </div>
+    <div class="gs-step reveal">
+      <div class="gs-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=75&auto=format&fit=crop" alt=""/></div>
+      <div class="gs-title">Start <em>earning</em></div>
+      <div class="gs-desc">Once you're live, you fill empty spots, add incremental revenue, and welcome high-intent Nabad members through your door — within just a few weeks.</div>
+    </div>
   </div>
 </section>
 

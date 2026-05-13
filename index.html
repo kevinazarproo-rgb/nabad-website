@@ -129,26 +129,32 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 /* ONBOARDING OVERLAY */
 .onb{
-  position:fixed;inset:0;z-index:80;background:var(--bg-soft);
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:80;background:var(--bg-soft);
+  height:100vh;
+  height:100dvh; /* iOS Safari: adapt to visible viewport */
   display:none;flex-direction:column;
+  overflow:hidden;
 }
 .onb.open{display:flex}
 .onb-top{
+  flex:0 0 auto;
   display:flex;justify-content:space-between;align-items:center;
   padding:14px 20px;
 }
 .onb-logo{font-size:22px;font-weight:800;letter-spacing:-.03em}
 .onb-close{font-size:28px;font-weight:400;background:transparent;color:var(--ink);line-height:1}
 .onb-body{
-  flex:1;display:flex;flex-direction:column;justify-content:center;
-  padding:24px 24px 0;
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:24px 24px;
+  overflow:hidden;
 }
 .onb-q{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:18px}
 .onb-a{
-  font-size:clamp(26px,6.5vw,40px);
+  font-size:clamp(24px,5.8vw,40px);
   font-weight:800;line-height:1.18;letter-spacing:-.02em;
 }
-.onb-foot{padding:24px 24px 36px;display:flex;flex-direction:column;gap:18px;align-items:center}
+.onb-foot{flex:0 0 auto;padding:18px 24px max(24px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;align-items:center}
 .onb-dots{display:flex;gap:8px;justify-content:center}
 .onb-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.18);transition:background .2s}
 .onb-dot.on{background:var(--ink)}

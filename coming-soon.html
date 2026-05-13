@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/anim.css"/>
 <style>
 :root{
   --bg:#EDEBE6;--ink:#1E1A17;--slate:#717D8A;
@@ -58,11 +59,11 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
 </header>
 
 <section class="center">
-  <span class="badge">Coming soon</span>
-  <h1>The Nabad app is <em>almost here</em>.</h1>
-  <p>We're putting the finishing touches on the iOS and Android apps. Want to be among the first to know when we launch?</p>
+  <span class="badge fx-up fx-up-1">Coming soon</span>
+  <h1 class="fx-up fx-up-2">The Nabad app is <em>almost here</em>.</h1>
+  <p class="fx-up fx-up-3">We're putting the finishing touches on the iOS and Android apps. Want to be among the first to know when we launch?</p>
 
-  <div class="actions">
+  <div class="actions fx-up fx-up-4">
     <button type="button" class="btn btn-primary" id="notifyBtn" onclick="document.getElementById('notifyForm').classList.add('open');this.style.display='none'">Notify me at launch</button>
 
     <form class="notify-form" id="notifyForm" onsubmit="event.preventDefault();document.getElementById('notifySuccess').classList.add('show');this.reset();this.classList.remove('open');">
@@ -286,5 +287,6 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
   <div class="notify-success" id="notifySuccess">You're on the list — we'll be in touch at launch.</div>
 </section>
 
+<script src="assets/anim.js" defer></script>
 </body>
 </html>

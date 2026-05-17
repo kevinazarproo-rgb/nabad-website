@@ -174,6 +174,25 @@ img{max-width:100%;display:block}
 .share-btn.wa:hover{background:#1da851;border-color:#1da851}
 .share-btn svg{width:18px;height:18px}
 
+/* TIERS / BADGES */
+.tiers{padding:64px 20px;background:var(--bg)}
+.tiers-inner{max-width:1000px;margin:0 auto}
+.tiers h2{font-size:clamp(28px,5.5vw,42px);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:14px;line-height:1.1}
+.tiers .sub{text-align:center;font-size:16px;color:var(--slate);max-width:54ch;margin:0 auto 36px}
+.tier-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.tier-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.tier{background:#fff;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.tier.featured{border-color:var(--terra);box-shadow:0 8px 30px rgba(176,110,82,.12)}
+.tier-medal{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.tier-medal.bronze{background:linear-gradient(135deg,#B87333,#8E5526)}
+.tier-medal.silver{background:linear-gradient(135deg,#C0C0C0,#909090)}
+.tier-medal.gold{background:linear-gradient(135deg,#E5C158,#B98F2C)}
+.tier-name{font-size:20px;font-weight:800;letter-spacing:-.01em}
+.tier-count{font-size:14px;color:var(--slate);font-weight:500}
+.tier-perks{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink);text-align:left;width:100%;margin-top:6px}
+.tier-perks li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.tier-perks li::before{content:'';flex-shrink:0;width:18px;height:18px;border-radius:50%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23B06E52' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 11 10 16 17 7'/></svg>");background-size:contain;background-repeat:no-repeat;margin-top:1px}
+
 /* FOOTER */
 .footer{background:#000;color:#fff;padding:56px 0 40px;margin-top:24px}
 .footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px}
@@ -339,6 +358,45 @@ img{max-width:100%;display:block}
       <h2>How to invite a friend to class</h2>
       <p>Search for any class on Nabad and tap the <strong>Invite</strong> button, or use the invite link that appears once you reserve a spot.</p>
       <p>Already booked but forgot to invite a friend? Tap <strong>Upcoming</strong> in the app to view your future classes and invite friends in one tap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers reveal">
+  <div class="tiers-inner">
+    <h2>Founding Member tiers</h2>
+    <p class="sub">Every successful invite counts. The higher you go, the louder your status at launch.</p>
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-medal bronze">B</div>
+        <div class="tier-name">Bronze</div>
+        <div class="tier-count">3+ friends</div>
+        <ul class="tier-perks">
+          <li>Bronze badge on your profile</li>
+          <li>Founding Member status at launch</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <div class="tier-medal silver">S</div>
+        <div class="tier-name">Silver</div>
+        <div class="tier-count">10+ friends</div>
+        <ul class="tier-perks">
+          <li>Silver badge on your profile</li>
+          <li>Early access — 1 week before public launch</li>
+          <li>Spot on the Founding Member leaderboard</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-medal gold">G</div>
+        <div class="tier-name">Gold</div>
+        <div class="tier-count">25+ friends</div>
+        <ul class="tier-perks">
+          <li>Gold badge — permanent on your profile</li>
+          <li>Top of the Founding Member leaderboard</li>
+          <li>Recognition on Nabad's launch announcement</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

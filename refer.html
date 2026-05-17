@@ -149,6 +149,15 @@ img{max-width:100%;display:block}
 .section.flip .im-preview-title{font-size:7px}
 .section.flip .im-preview-url{font-size:6.5px}
 
+/* Use real screenshot directly (image already includes phone shape) */
+.phone-img{
+  display:block;height:auto;width:200px;
+  border-radius:32px;
+  box-shadow:0 30px 60px rgba(30,26,23,0.22);
+}
+.phone-img.tilt-l{transform:rotate(-3deg) translateY(6px)}
+.phone-img.tilt-r{transform:rotate(3deg) translateY(6px)}
+
 
 /* SHARE ROW */
 .share-row{display:flex;flex-direction:column;gap:10px;margin-top:24px}
@@ -221,44 +230,8 @@ img{max-width:100%;display:block}
   <div class="section-inner">
     <div class="section-media reveal">
       <div class="phones">
-        <!-- Phone 1: Nabad app -->
-        <div class="phone tilt-l">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
-            <div class="app-header">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start">
-                <div>
-                  <div class="app-greeting">Hello,</div>
-                  <div class="app-name">Mohammed</div>
-                </div>
-                <div class="app-credits-pill">47 credits</div>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="app-card-eyebrow">⭐ Studio of the day</div>
-              <div class="app-card-title">Pulse Yoga</div>
-              <div class="app-card-sub">Jumeirah · Dubai · 4.9 ★</div>
-            </div>
-            <div class="app-section-label">All studios</div>
-            <div class="app-row">
-              <div class="app-row-thumb" style="background-image:url('assets/IMG_7444.jpeg')"></div>
-              <div style="flex:1"><div class="app-row-name">Reformer Lab</div><div class="app-row-meta">Beirut · Pilates</div></div>
-              <div class="app-row-price">from 8 cr.</div>
-            </div>
-            <div class="app-row">
-              <div class="app-row-thumb" style="background-image:url('assets/IMG_7518.jpeg')"></div>
-              <div style="flex:1"><div class="app-row-name">Studio Vert</div><div class="app-row-meta">Beirut · Pilates</div></div>
-              <div class="app-row-price">from 7 cr.</div>
-            </div>
-            <div class="app-tabbar">
-              <span class="app-tab-i on">Studios</span>
-              <span class="app-tab-i">Map</span>
-              <span class="app-tab-i">Bookings</span>
-              <span class="app-tab-i">Profile</span>
-            </div>
-          </div>
-        </div>
+        <!-- Phone 1: Nabad app (real screenshot) -->
+        <img class="phone-img tilt-l" src="assets/app-mockup.jpeg" alt="Nabad app on iPhone"/>
         <!-- Phone 2: iMessage share -->
         <div class="phone tilt-r">
           <div class="phone-screen">

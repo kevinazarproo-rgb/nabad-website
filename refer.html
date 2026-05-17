@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Refer a friend — Nabad</title>
-<meta name="description" content="Invite friends to Nabad and become a Founding Member. Earn badges and climb the leaderboard."/>
+<meta name="description" content="Invite friends to Nabad and become a Founding Member."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -24,9 +24,11 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
-.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 @media(min-width:900px){.wrap{padding:0 40px}}
 
+/* NAV */
 .nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
 .nav-logo{display:inline-flex;align-items:center;font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
 .nav-logo img{height:72px;width:auto;display:block}
@@ -37,76 +39,116 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .menu{position:fixed;inset:0;z-index:70;background:var(--bg);display:none;flex-direction:column;padding:14px 0 24px}
 .menu.open{display:flex}
 .menu-top{display:flex;justify-content:space-between;align-items:center;padding:0 20px 20px}
-.menu-close{font-size:28px;font-weight:400;line-height:1;background:transparent;color:var(--ink)}
+.menu-close{font-size:28px;background:transparent;color:var(--ink);line-height:1}
 .menu-list{display:flex;flex-direction:column;flex:1}
 .menu-list a{padding:18px 20px;font-size:20px;font-weight:600;border-bottom:1px solid var(--line)}
 .menu-list a:first-child{border-top:1px solid var(--line)}
 .menu-bottom{padding:24px 20px 0}
-.btn-primary{display:block;width:100%;text-align:center;background:var(--terra);color:#fff;padding:18px 24px;border-radius:100px;font-size:16px;font-weight:700;transition:background .15s,transform .15s}
+
+/* SHARED */
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--terra);color:#fff;padding:16px 36px;border-radius:100px;font-size:16px;font-weight:700;transition:background .15s,transform .15s;width:100%}
 .btn-primary:hover{background:var(--terra-d);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--terra);color:var(--terra);background:transparent;padding:15px 36px;border-radius:100px;font-size:16px;font-weight:700;transition:background .15s,transform .15s}
+.btn-outline:hover{background:rgba(176,110,82,0.08);transform:translateY(-1px)}
 
-.hero{padding:64px 20px 32px;text-align:center;max-width:760px;margin:0 auto}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--terra-l);color:var(--terra-d);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
-.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra)}
-.hero h1{font-size:clamp(34px,7vw,56px);font-weight:800;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
-.hero h1 em{font-style:italic;color:var(--terra);font-weight:400}
-.hero p{font-size:17px;color:var(--slate);margin-top:18px;max-width:52ch;margin-left:auto;margin-right:auto;line-height:1.55}
-@media(min-width:760px){.hero{padding:88px 40px 48px}.hero p{font-size:19px}}
+/* TOP HERO */
+.intro{padding:56px 20px 8px;text-align:center;max-width:760px;margin:0 auto}
+.intro-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--terra-l);color:var(--terra-d);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.intro-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra)}
+.intro h1{font-size:clamp(36px,7.2vw,56px);font-weight:800;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+.intro h1 em{font-style:italic;color:var(--terra);font-weight:400}
+.intro p{font-size:17px;color:var(--slate);margin-top:18px;max-width:54ch;margin-left:auto;margin-right:auto;line-height:1.55}
+@media(min-width:760px){.intro{padding:88px 40px 16px}.intro p{font-size:19px}}
 
-.share-row{display:flex;flex-direction:column;gap:12px;margin-top:32px;align-items:center}
+/* SECTION (mockups + text) */
+.section{padding:48px 20px;background:var(--bg-soft)}
+.section.alt{background:var(--bg)}
+.section-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px;align-items:center;text-align:left}
+@media(min-width:900px){
+  .section{padding:96px 40px}
+  .section-inner{flex-direction:row;gap:80px;align-items:center}
+  .section.flip .section-inner{flex-direction:row-reverse}
+}
+.section-media{flex:1;min-width:0;display:flex;justify-content:center;width:100%}
+.section-text{flex:1;min-width:0;width:100%}
+.section-text h2{font-size:clamp(28px,5.5vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+.section-text p{font-size:16.5px;line-height:1.65;color:var(--ink);margin-bottom:18px}
+.section-text p strong{font-weight:700}
+.section-text .cta{margin-top:8px}
+
+/* PHONE MOCKUP STACK */
+.phones{position:relative;display:flex;gap:16px;justify-content:center;align-items:flex-end}
+.phone{
+  background:#1E1A17;border-radius:38px;padding:6px;
+  width:200px;flex-shrink:0;box-shadow:0 30px 60px rgba(30,26,23,0.22);
+}
+.phone.tilt-l{transform:rotate(-3deg) translateY(8px)}
+.phone.tilt-r{transform:rotate(3deg) translateY(8px)}
+.phone-screen{background:#fff;border-radius:32px;overflow:hidden;height:420px;position:relative;display:flex;flex-direction:column}
+.phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;background:#1E1A17;border-radius:12px;z-index:2}
+.phone-status{display:flex;justify-content:space-between;padding:14px 18px 6px;font-size:9.5px;font-weight:700;color:var(--ink)}
+.phone-status .right{display:flex;gap:4px;align-items:center}
+.phone-status svg{width:9px;height:9px;fill:var(--ink)}
+
+/* iMessage style */
+.im-header{display:flex;flex-direction:column;align-items:center;padding:14px 12px 8px;border-bottom:1px solid #f0f0f0}
+.im-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#B06E52,#8E5740);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
+.im-name{font-size:11px;font-weight:500;color:var(--ink);margin-top:4px}
+.im-body{padding:12px 10px;flex:1;overflow:hidden;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.im-bubble{
+  background:#0a84ff;color:#fff;padding:9px 12px;border-radius:18px;
+  font-size:11px;line-height:1.35;max-width:84%;
+  text-align:left;border-bottom-right-radius:4px;
+}
+.im-preview{
+  background:#f1f1f3;border-radius:14px;overflow:hidden;max-width:84%;width:84%;
+  display:flex;flex-direction:column;
+}
+.im-preview-img{background:#1E1A17;height:96px;background-image:url('assets/IMG_7440.jpeg');background-size:cover;background-position:center;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr}
+.im-preview-img-tile{background-size:cover;background-position:center}
+.im-preview-meta{padding:8px 10px}
+.im-preview-title{font-size:10px;font-weight:700;color:var(--ink);line-height:1.2}
+.im-preview-url{font-size:9px;color:#8a8a8e;margin-top:2px}
+
+/* Nabad app phone mockup */
+.app-header{padding:8px 14px 6px;border-bottom:1px solid #f5f5f5}
+.app-greeting{font-size:8px;color:var(--slate);font-weight:500}
+.app-name{font-size:14px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.app-credits-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:#1E1A17;color:#fff;border-radius:100px;font-size:8.5px;font-weight:700;float:right}
+.app-credits-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--terra)}
+
+.app-card{margin:8px 10px;background:#1E1A17;color:#fff;border-radius:12px;padding:10px;height:80px;display:flex;flex-direction:column;justify-content:flex-end;background-image:linear-gradient(rgba(30,26,23,0.35),rgba(30,26,23,0.7)),url('assets/IMG_7441.jpeg');background-size:cover;background-position:center}
+.app-card-eyebrow{font-size:7.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.app-card-title{font-size:13px;font-weight:800;letter-spacing:-.01em;margin-top:2px;font-family:Georgia,serif;font-style:italic;font-weight:400}
+.app-card-sub{font-size:8.5px;opacity:.85;margin-top:2px}
+
+.app-section-label{font-size:9px;font-weight:700;padding:6px 14px 4px;color:var(--ink)}
+.app-row{display:flex;align-items:center;gap:8px;padding:6px 14px;font-size:10px;color:var(--ink);font-weight:500}
+.app-row-thumb{width:24px;height:24px;border-radius:6px;background-size:cover;background-position:center;flex-shrink:0}
+.app-row-name{flex:1;font-weight:700;font-size:9.5px}
+.app-row-meta{color:var(--slate);font-size:8px;font-weight:500;margin-top:1px}
+.app-row-price{font-size:9px;font-weight:700;color:var(--terra)}
+
+.app-tabbar{margin-top:auto;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #f0f0f0;background:#fff}
+.app-tab-i{font-size:7.5px;color:#aaa;font-weight:600}
+.app-tab-i.on{color:var(--terra)}
+
+/* SHARE ROW */
+.share-row{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+@media(min-width:560px){.share-row{flex-direction:row;flex-wrap:wrap}}
 .share-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:14px 26px;border-radius:100px;font-size:15px;font-weight:700;
+  padding:14px 24px;border-radius:100px;font-size:14.5px;font-weight:700;
   background:#fff;border:1.5px solid var(--line);color:var(--ink);
-  transition:background .15s,border-color .15s,transform .15s;
-  min-width:220px;cursor:pointer;
+  transition:border-color .15s,transform .15s;
+  cursor:pointer;
 }
 .share-btn:hover{border-color:var(--terra);transform:translateY(-1px)}
 .share-btn.wa{background:#25D366;color:#fff;border-color:#25D366}
 .share-btn.wa:hover{background:#1da851;border-color:#1da851}
 .share-btn svg{width:18px;height:18px}
-@media(min-width:560px){.share-row{flex-direction:row;justify-content:center;flex-wrap:wrap}.share-btn{width:auto}}
 
-/* HOW IT WORKS */
-.how{padding:48px 20px 24px;max-width:1000px;margin:0 auto}
-.how h2{font-size:clamp(26px,5vw,36px);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:36px}
-.steps{display:grid;grid-template-columns:1fr;gap:18px}
-@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr);gap:22px}}
-.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:10px}
-.step-num{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
-.step-title{font-size:20px;font-weight:800;letter-spacing:-.01em}
-.step-desc{font-size:15px;color:var(--slate);line-height:1.55}
-
-/* TIERS / BADGES */
-.tiers{padding:64px 20px;background:var(--bg-soft)}
-.tiers-inner{max-width:1000px;margin:0 auto}
-.tiers h2{font-size:clamp(26px,5vw,36px);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:14px}
-.tiers .sub{text-align:center;font-size:16px;color:var(--slate);max-width:54ch;margin:0 auto 36px}
-.tier-grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.tier-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
-.tier{background:#fff;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.tier.featured{border-color:var(--terra);box-shadow:0 8px 30px rgba(176,110,82,.12)}
-.tier-medal{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em}
-.tier-medal.bronze{background:linear-gradient(135deg,#B87333,#8E5526)}
-.tier-medal.silver{background:linear-gradient(135deg,#C0C0C0,#909090)}
-.tier-medal.gold{background:linear-gradient(135deg,#E5C158,#B98F2C)}
-.tier-name{font-size:20px;font-weight:800;letter-spacing:-.01em}
-.tier-count{font-size:14px;color:var(--slate);font-weight:500}
-.tier-perks{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink);text-align:left;width:100%;margin-top:6px}
-.tier-perks li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
-.tier-perks li::before{content:'';flex-shrink:0;width:18px;height:18px;border-radius:50%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23B06E52' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 11 10 16 17 7'/></svg>");background-size:contain;background-repeat:no-repeat;margin-top:1px}
-
-/* FAQ short */
-.fqa{padding:48px 20px 64px;max-width:760px;margin:0 auto}
-.fqa h2{font-size:clamp(24px,4.5vw,32px);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:18px}
-.fqa-list{border-top:1px solid var(--line)}
-.fqa-i{border-bottom:1px solid var(--line)}
-.fqa-q{list-style:none;cursor:pointer;padding:18px 4px;font-size:16px;font-weight:600;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.fqa-q::-webkit-details-marker{display:none}
-.fqa-q::after{content:'+';font-weight:400;font-size:22px;color:var(--ink);transition:transform .2s}
-.fqa-i[open] .fqa-q::after{transform:rotate(45deg)}
-.fqa-a{padding:0 4px 18px;color:var(--slate);font-size:14.5px;line-height:1.6}
-
+/* FOOTER */
 .footer{background:#000;color:#fff;padding:56px 0 40px;margin-top:24px}
 .footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px}
 @media(min-width:800px){.footer-grid{grid-template-columns:repeat(4,1fr);gap:48px}}
@@ -119,13 +161,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .footer-legal a{color:#888;font-size:13px;font-weight:400}
 .footer-legal a:hover{color:#fff}
 
-.copied-toast{
-  position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(80px);
-  background:var(--ink);color:#fff;padding:12px 22px;border-radius:100px;
-  font-size:14px;font-weight:600;opacity:0;
-  transition:opacity .25s,transform .25s;
-  z-index:90;
-}
+.copied-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:100px;font-size:14px;font-weight:600;opacity:0;transition:opacity .25s,transform .25s;z-index:90}
 .copied-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
@@ -156,92 +192,178 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <span class="hero-eyebrow fx-up fx-up-1">Founding Members</span>
-  <h1 class="fx-up fx-up-2">Bring your friends.<br/>Become a <em>founding member.</em></h1>
-  <p class="fx-up fx-up-3">Nabad launches with the people who built it. Share Nabad with friends, earn a badge, and climb the Founding Member leaderboard.</p>
-  <div class="share-row fx-up fx-up-4">
-    <a class="share-btn wa" href="https://wa.me/?text=I'm%20joining%20Nabad%20%E2%80%94%20one%20pass%20for%20every%20studio%20in%20Lebanon.%20Get%20on%20the%20list%20before%20launch%3A%20https%3A%2F%2Fnabad.studio" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.6-1.3c-.4-.2-.8-.1-1.1.2l-1.1 1.4c-1.4-.6-3-2.2-3.6-3.6l1.4-1.1c.3-.3.4-.7.2-1.1L9.5 6.4c-.2-.4-.7-.5-1.1-.3l-1.6.8c-.7.3-1 1-.9 1.8.6 3.5 4 6.9 7.5 7.5.8.1 1.5-.2 1.8-.9l.8-1.6c.2-.4.1-.9-.3-1.1zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.4-1.2c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-      Share on WhatsApp
-    </a>
-    <button class="share-btn" onclick="copyLink()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>
-      Copy invite link
-    </button>
+<!-- INTRO -->
+<section class="intro">
+  <span class="intro-eyebrow fx-up fx-up-1">Founding Members</span>
+  <h1 class="fx-up fx-up-2">Bring your friends.<br/>Make Nabad <em>yours.</em></h1>
+  <p class="fx-up fx-up-3">Every friend you bring in counts toward your Founding Member badge — and we'll give the early community a head start at launch.</p>
+</section>
+
+<!-- HOW TO REFER -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-media reveal">
+      <div class="phones">
+        <!-- Phone 1: Nabad app -->
+        <div class="phone tilt-l">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
+            <div class="app-header">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start">
+                <div>
+                  <div class="app-greeting">Hello,</div>
+                  <div class="app-name">Mohammed</div>
+                </div>
+                <div class="app-credits-pill">47 credits</div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-card-eyebrow">⭐ Studio of the day</div>
+              <div class="app-card-title">Pulse Yoga</div>
+              <div class="app-card-sub">Jumeirah · Dubai · 4.9 ★</div>
+            </div>
+            <div class="app-section-label">All studios</div>
+            <div class="app-row">
+              <div class="app-row-thumb" style="background-image:url('assets/IMG_7444.jpeg')"></div>
+              <div style="flex:1"><div class="app-row-name">Reformer Lab</div><div class="app-row-meta">Beirut · Pilates</div></div>
+              <div class="app-row-price">from 8 cr.</div>
+            </div>
+            <div class="app-row">
+              <div class="app-row-thumb" style="background-image:url('assets/IMG_7518.jpeg')"></div>
+              <div style="flex:1"><div class="app-row-name">Studio Vert</div><div class="app-row-meta">Beirut · Pilates</div></div>
+              <div class="app-row-price">from 7 cr.</div>
+            </div>
+            <div class="app-tabbar">
+              <span class="app-tab-i on">Studios</span>
+              <span class="app-tab-i">Map</span>
+              <span class="app-tab-i">Bookings</span>
+              <span class="app-tab-i">Profile</span>
+            </div>
+          </div>
+        </div>
+        <!-- Phone 2: iMessage share -->
+        <div class="phone tilt-r">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
+            <div class="im-header">
+              <div class="im-avatar">A</div>
+              <div class="im-name">Alyssa ›</div>
+            </div>
+            <div class="im-body">
+              <div class="im-bubble">Hey! You'd love Nabad — one pass for every studio in Lebanon. Sign up before launch and get founding member perks 🙌</div>
+              <div class="im-preview">
+                <div class="im-preview-img" style="background-image:url('assets/IMG_7441.jpeg')"></div>
+                <div class="im-preview-meta">
+                  <div class="im-preview-title">Nabad — One pass for every studio in Lebanon</div>
+                  <div class="im-preview-url">nabad.studio</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-text reveal">
+      <h2>How to refer a friend to Nabad</h2>
+      <p><strong>On the app:</strong> open the Nabad app, tap the <strong>Profile</strong> tab in the lower right corner, and select <strong>Refer a friend</strong>.</p>
+      <p><strong>On the website:</strong> log into your account, click your initial in the top right corner, navigate to <strong>Account</strong>, and click <strong>Refer friends</strong>.</p>
+      <p style="color:var(--slate);font-size:14.5px">Nabad app launching soon — for now, share the link below to lock in your Founding Member spot.</p>
+      <div class="share-row cta">
+        <a class="share-btn wa" href="https://wa.me/?text=I'm%20joining%20Nabad%20%E2%80%94%20one%20pass%20for%20every%20studio%20in%20Lebanon.%20Get%20on%20the%20list%20before%20launch%3A%20https%3A%2F%2Fnabad.studio" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.6-1.3c-.4-.2-.8-.1-1.1.2l-1.1 1.4c-1.4-.6-3-2.2-3.6-3.6l1.4-1.1c.3-.3.4-.7.2-1.1L9.5 6.4c-.2-.4-.7-.5-1.1-.3l-1.6.8c-.7.3-1 1-.9 1.8.6 3.5 4 6.9 7.5 7.5.8.1 1.5-.2 1.8-.9l.8-1.6c.2-.4.1-.9-.3-1.1zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.4-1.2c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          Refer on WhatsApp
+        </a>
+        <button class="share-btn" onclick="copyLink()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>
+          Copy invite link
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how">
-  <h2 class="reveal">How it works</h2>
-  <div class="steps">
-    <div class="step reveal">
-      <div class="step-num">Step 01</div>
-      <div class="step-title">Share Nabad</div>
-      <div class="step-desc">Send your friends a link via WhatsApp or copy/paste it anywhere. No code, no signup yet — it's pre-launch.</div>
-    </div>
-    <div class="step reveal" style="transition-delay:.08s">
-      <div class="step-num">Step 02</div>
-      <div class="step-title">They join the list</div>
-      <div class="step-desc">When friends sign up with your link, they're tied to your account and counted toward your Founding Member status.</div>
-    </div>
-    <div class="step reveal" style="transition-delay:.16s">
-      <div class="step-num">Step 03</div>
-      <div class="step-title">Earn a badge</div>
-      <div class="step-desc">The more friends, the higher your tier. Founding Members get a visible badge in the app and a spot on the public leaderboard at launch.</div>
-    </div>
-  </div>
-</section>
-
-<!-- TIERS -->
-<section class="tiers reveal">
-  <div class="tiers-inner">
-    <h2>Founding Member tiers</h2>
-    <p class="sub">Every successful invite counts. The higher you go, the louder your status at launch.</p>
-    <div class="tier-grid">
-      <div class="tier">
-        <div class="tier-medal bronze">B</div>
-        <div class="tier-name">Bronze</div>
-        <div class="tier-count">3+ friends</div>
-        <ul class="tier-perks">
-          <li>Bronze badge on your profile</li>
-          <li>Founding Member status at launch</li>
-        </ul>
+<!-- HOW TO INVITE TO CLASS -->
+<section class="section alt flip">
+  <div class="section-inner">
+    <div class="section-media reveal">
+      <div class="phones">
+        <!-- Phone A: studio card -->
+        <div class="phone tilt-l">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
+            <div style="height:140px;background-image:url('assets/IMG_7442.jpeg');background-size:cover;background-position:center;position:relative">
+              <div style="position:absolute;top:8px;right:10px;background:rgba(255,255,255,.9);padding:3px 8px;border-radius:100px;font-size:8px;font-weight:700">1/5</div>
+            </div>
+            <div style="padding:10px 14px">
+              <div style="font-size:13px;font-weight:800;letter-spacing:-.01em">Strength Studio</div>
+              <div style="font-size:8.5px;color:var(--slate);margin-top:2px">4.7 ★ (320) · Reformer · Strength</div>
+              <div style="font-size:9.5px;font-weight:600;margin-top:6px">Thu, May 19 · 9:30 AM</div>
+              <div style="display:flex;gap:6px;margin-top:8px">
+                <div style="flex:1;padding:7px 10px;background:#1E1A17;color:#fff;border-radius:8px;font-size:9.5px;font-weight:700;text-align:center">+ Invite</div>
+                <div style="flex:1;padding:7px 10px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:8px;font-size:9.5px;font-weight:700;text-align:center">Add</div>
+              </div>
+              <div style="font-size:9px;font-weight:700;margin-top:10px">Reviews</div>
+              <div style="font-size:8.5px;color:var(--slate);margin-top:2px">4.7 ★ (320)</div>
+            </div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-top:1px solid #f0f0f0">
+              <span style="font-size:9px;color:var(--slate)">8 credits</span>
+              <span style="background:var(--terra);color:#fff;padding:6px 14px;border-radius:100px;font-size:10px;font-weight:700">Reserve</span>
+            </div>
+          </div>
+        </div>
+        <!-- Phone B: share sheet -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
+            <div style="height:120px;background-image:url('assets/IMG_7518.jpeg');background-size:cover;background-position:center"></div>
+            <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:800;text-align:center;letter-spacing:-.01em">Want to bring a friend?</div>
+              <div style="font-size:9.5px;color:var(--slate);text-align:center;line-height:1.4">Your reservation is confirmed. Share Nabad with friends — they get founding perks too.</div>
+              <div style="display:flex;justify-content:center;gap:14px;margin-top:6px">
+                <div style="width:36px;height:36px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px">WA</div>
+                <div style="width:36px;height:36px;border-radius:50%;background:#0a84ff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:10px">SMS</div>
+                <div style="width:36px;height:36px;border-radius:50%;background:#1E1A17;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:10px">Link</div>
+                <div style="width:36px;height:36px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:var(--ink);font-weight:800;font-size:11px">⋯</div>
+              </div>
+              <div style="margin-top:8px;padding:10px;background:#f7f5f1;border-radius:10px;font-size:9px;text-align:center;color:var(--ink);font-weight:600">Share to Instagram story</div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone C: iMessage with class invite -->
+        <div class="phone tilt-r">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status"><span>9:41</span><span class="right"><svg viewBox="0 0 14 14"><path d="M1 5h2v6H1zM5 3h2v8H5zM9 1h2v10H9z" opacity=".7"/></svg></span></div>
+            <div class="im-header">
+              <div class="im-avatar">A</div>
+              <div class="im-name">Alyssa ›</div>
+            </div>
+            <div class="im-body">
+              <div class="im-bubble">I just booked Strength Studio on Nabad — want to come with me? Free class on us 💪</div>
+              <div class="im-preview">
+                <div class="im-preview-img" style="background-image:url('assets/IMG_7442.jpeg')"></div>
+                <div class="im-preview-meta">
+                  <div class="im-preview-title">Work out at the best studios in Beirut</div>
+                  <div class="im-preview-url">nabad.studio</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tier featured">
-        <div class="tier-medal silver">S</div>
-        <div class="tier-name">Silver</div>
-        <div class="tier-count">10+ friends</div>
-        <ul class="tier-perks">
-          <li>Silver badge on your profile</li>
-          <li>Early access to the app — 1 week before public launch</li>
-          <li>Spot on the Founding Member leaderboard</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="tier-medal gold">G</div>
-        <div class="tier-name">Gold</div>
-        <div class="tier-count">25+ friends</div>
-        <ul class="tier-perks">
-          <li>Gold badge — permanent on your profile</li>
-          <li>Top of the Founding Member leaderboard</li>
-          <li>Recognition on Nabad's launch announcement</li>
-        </ul>
+    </div>
+    <div class="section-text reveal">
+      <h2>How to invite a friend to class</h2>
+      <p>Search for any class on Nabad and tap the <strong>Invite</strong> button, or use the invite link that appears once you reserve a spot.</p>
+      <p>Already booked but forgot to invite a friend? Tap <strong>Upcoming</strong> in the app to view your future classes and invite friends in one tap.</p>
+      <div class="cta" style="margin-top:24px">
+        <a href="plans.html" class="btn-outline">Find classes &amp; appointments</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="fqa">
-  <h2>Quick questions</h2>
-  <div class="fqa-list">
-    <details class="fqa-i"><summary class="fqa-q">Is there a money or credit reward?</summary><div class="fqa-a">Not yet — we keep prices low for everyone instead. Founding Members get badges, early access, and public recognition at launch.</div></details>
-    <details class="fqa-i"><summary class="fqa-q">When does my count start?</summary><div class="fqa-a">As soon as a friend joins the waitlist with your shared link, they're tied to your account. We'll surface your count in the app at launch.</div></details>
-    <details class="fqa-i"><summary class="fqa-q">Can I lose my badge?</summary><div class="fqa-a">No. Founding Member status is permanent — once you hit Gold, you stay Gold forever.</div></details>
-    <details class="fqa-i"><summary class="fqa-q">Where can I see my friends?</summary><div class="fqa-a">In the Nabad app at launch, you'll see who joined with your link and where you rank on the public leaderboard.</div></details>
   </div>
 </section>
 

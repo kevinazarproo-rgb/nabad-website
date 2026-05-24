@@ -12,26 +12,50 @@
 <link rel="apple-touch-icon" href="assets/IMG_7429.png"/>
 <style>
 :root{
-  --bg:#EDEBE6;--ink:#1E1A17;--slate:#717D8A;
+  --bg:#EDEBE6;--bg-soft:#E2DFD8;--ink:#1E1A17;--slate:#717D8A;
   --line:rgba(30,26,23,0.12);
   --terra:#B06E52;--terra-d:#8E5740;--terra-l:#F6E9E1;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
 
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
 .nav-logo{display:inline-flex;align-items:center;font-size:24px;font-weight:800;letter-spacing:-.03em}
 .nav-logo img{height:72px;width:auto;display:block}
 @media(min-width:760px){.nav-logo img{height:96px}}
 
-.center{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:48px 24px}
+.hero{
+  flex:1;
+  display:grid;grid-template-columns:1fr;gap:40px;
+  align-items:center;
+  padding:48px 24px;
+  max-width:1100px;width:100%;margin:0 auto;
+}
+@media(min-width:900px){
+  .hero{grid-template-columns:1.1fr 0.9fr;gap:80px;padding:80px 40px}
+}
+.hero-text{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+@media(max-width:899px){.hero-text{align-items:center;text-align:center}}
+
 .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--terra-l);color:var(--terra-d);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
-.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra)}
-h1{font-size:clamp(36px,9vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.02;max-width:14ch;text-wrap:balance}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+h1{font-size:clamp(36px,7vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.02;max-width:14ch;text-wrap:balance}
 h1 em{font-style:italic;color:var(--terra);font-weight:400}
-p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1.5}
+.sub{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1.5}
+@media(min-width:900px){.sub{font-size:18.5px}}
+
+/* Feature bullets */
+.feats{display:flex;flex-direction:column;gap:10px;margin-top:28px;width:100%;max-width:380px}
+.feat{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:var(--ink)}
+.feat-icon{width:24px;height:24px;border-radius:50%;background:var(--terra-l);color:var(--terra-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700}
+
+/* Actions */
 .actions{display:flex;flex-direction:column;gap:12px;margin-top:32px;width:100%;max-width:380px}
 .btn{display:block;width:100%;text-align:center;padding:16px 24px;border-radius:100px;font-size:15.5px;font-weight:700;transition:background .15s, transform .15s;border:none;cursor:pointer}
 .btn-primary{background:var(--terra);color:#fff}
@@ -42,16 +66,38 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
 .notify-form{display:none;flex-direction:column;gap:12px;width:100%;text-align:left}
 .notify-form.open{display:flex}
 .notify-form label{font-size:13px;font-weight:600;color:var(--ink)}
-.notify-form input{
-  font:inherit;color:var(--ink);
-  border:1.5px solid rgba(30,26,23,.18);
-  background:#fff;padding:14px 16px;border-radius:12px;
-  outline:none;transition:border-color .15s;width:100%;
-}
+.notify-form input{font:inherit;color:var(--ink);border:1.5px solid rgba(30,26,23,.18);background:#fff;padding:14px 16px;border-radius:12px;outline:none;transition:border-color .15s;width:100%}
 .notify-form input:focus{border-color:var(--terra)}
 .notify-form .field{display:flex;flex-direction:column;gap:6px}
-.notify-success{display:none;margin-top:24px;padding:20px;background:var(--terra-l);color:var(--terra-d);border-radius:14px;font-weight:600;font-size:15px}
+.notify-success{display:none;margin-top:18px;padding:18px;background:var(--terra-l);color:var(--terra-d);border-radius:14px;font-weight:600;font-size:14.5px;text-align:left}
 .notify-success.show{display:block}
+
+/* App store row */
+.appstores{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.appstore{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1.5px solid rgba(30,26,23,0.2);border-radius:12px;color:var(--ink);font-weight:600;opacity:.55;cursor:not-allowed;pointer-events:none}
+.appstore svg{width:20px;height:20px;flex-shrink:0;fill:currentColor}
+.appstore span{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.appstore small{font-size:9.5px;font-weight:500;opacity:.7}
+.appstore strong{font-size:13px;font-weight:700}
+
+/* Phone mockup */
+.hero-media{display:flex;justify-content:center;align-items:center;position:relative}
+.hero-media img{
+  width:auto;max-height:560px;max-width:100%;
+  border-radius:36px;
+  box-shadow:0 30px 60px rgba(30,26,23,0.18);
+}
+.hero-media::before{
+  content:'';position:absolute;
+  width:80%;height:80%;
+  background:radial-gradient(circle,var(--terra-l) 0%,transparent 70%);
+  opacity:.5;z-index:-1;
+  filter:blur(40px);
+}
+
+/* Footer mini */
+.bottom{padding:20px 24px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--slate);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.bottom a{color:var(--ink);font-weight:600;text-decoration:underline}
 </style>
 <!-- OG START -->
 <meta property="og:type" content="website"/>
@@ -73,31 +119,59 @@ p{font-size:17px;color:var(--slate);margin-top:18px;max-width:42ch;line-height:1
   <a href="index.html" class="nav-logo"><img src="assets/logo-wordmark.png" alt="Nabad"/></a>
 </header>
 
-<section class="center">
-  <span class="badge fx-up fx-up-1">Coming soon</span>
-  <h1 class="fx-up fx-up-2">The Nabad app is <em>almost here</em>.</h1>
-  <p class="fx-up fx-up-3">We're putting the finishing touches on the iOS and Android apps. Want to be among the first to know when we launch?</p>
+<section class="hero">
+  <div class="hero-text">
+    <span class="badge fx-up fx-up-1">Coming soon</span>
+    <h1 class="fx-up fx-up-2">The Nabad app is <em>almost here.</em></h1>
+    <p class="sub fx-up fx-up-3">We're putting the finishing touches on iOS and Android. Be among the first to know when we go live.</p>
 
-  <div class="actions fx-up fx-up-4">
-    <button type="button" class="btn btn-primary" id="notifyBtn" onclick="document.getElementById('notifyForm').classList.add('open');this.style.display='none'">Notify me at launch</button>
+    <div class="feats fx-up fx-up-4">
+      <div class="feat"><span class="feat-icon">✓</span>Book any partner studio in Lebanon</div>
+      <div class="feat"><span class="feat-icon">✓</span>Credits never expire</div>
+      <div class="feat"><span class="feat-icon">✓</span>Pause or cancel anytime</div>
+    </div>
 
-    <form class="notify-form" id="notifyForm" onsubmit="event.preventDefault();document.getElementById('notifySuccess').classList.add('show');this.reset();this.classList.remove('open');">
-      <div class="field">
-        <label for="ne">Email *</label>
-        <input id="ne" type="email" required placeholder="you@example.com"/>
+    <div class="actions fx-up fx-up-5">
+      <button type="button" class="btn btn-primary" id="notifyBtn" onclick="document.getElementById('notifyForm').classList.add('open');this.style.display='none'">Notify me at launch</button>
+
+      <form class="notify-form" id="notifyForm" onsubmit="event.preventDefault();document.getElementById('notifySuccess').classList.add('show');this.reset();this.classList.remove('open');document.getElementById('notifyBtn').style.display='none';">
+        <div class="field">
+          <label for="ne">Email *</label>
+          <input id="ne" type="email" required placeholder="you@example.com"/>
+        </div>
+        <div class="field">
+          <label for="np">Phone (optional)</label>
+          <input id="np" type="tel" placeholder="Phone number"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Notify me</button>
+      </form>
+
+      <a href="index.html" class="btn btn-ghost">Back to home</a>
+    </div>
+
+    <div class="notify-success" id="notifySuccess">You're on the list. We'll be in touch at launch.</div>
+
+    <div class="appstores fx-up fx-up-6">
+      <div class="appstore">
+        <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span><small>Coming to</small><strong>App Store</strong></span>
       </div>
-      <div class="field">
-        <label for="np">Phone (optional)</label>
-        <input id="np" type="tel" placeholder="Phone number"/>
+      <div class="appstore">
+        <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.491 12l2.207-2.49zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
+        <span><small>Coming to</small><strong>Google Play</strong></span>
       </div>
-      <button type="submit" class="btn btn-primary">Notify me</button>
-    </form>
-
-    <a href="index.html" class="btn btn-ghost">Back to home</a>
+    </div>
   </div>
 
-  <div class="notify-success" id="notifySuccess">You're on the list. We'll be in touch at launch.</div>
+  <div class="hero-media fx-up fx-up-3">
+    <img src="assets/app-mockup.jpeg" alt="Nabad app on iPhone"/>
+  </div>
 </section>
+
+<div class="bottom">
+  <span>&copy; 2026 Nabad</span>
+  <span><a href="index.html">Home</a></span>
+</div>
 
 <script src="assets/anim.js" defer></script>
 </body>

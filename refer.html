@@ -180,13 +180,15 @@ img{max-width:100%;display:block}
 .tiers h2{font-size:clamp(28px,5.5vw,42px);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:14px;line-height:1.1}
 .tiers .sub{text-align:center;font-size:16px;color:var(--slate);max-width:54ch;margin:0 auto 36px}
 .tier-grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.tier-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+@media(min-width:760px){.tier-grid{grid-template-columns:repeat(2,1fr);gap:22px}}
+@media(min-width:1024px){.tier-grid{grid-template-columns:repeat(4,1fr)}}
 .tier{background:#fff;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;overflow:hidden;border:1px solid var(--line)}
 .tier.featured{border-color:var(--terra);box-shadow:0 8px 30px rgba(176,110,82,.12)}
 .tier-medal{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em}
 .tier-medal.bronze{background:linear-gradient(135deg,#B87333,#8E5526)}
 .tier-medal.silver{background:linear-gradient(135deg,#C0C0C0,#909090)}
 .tier-medal.gold{background:linear-gradient(135deg,#E5C158,#B98F2C)}
+.tier-medal.ambassador{background:linear-gradient(135deg,#1E1A17,#000)}
 .tier-name{font-size:20px;font-weight:800;letter-spacing:-.01em}
 .tier-count{font-size:14px;color:var(--slate);font-weight:500}
 .tier-perks{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink);text-align:left;width:100%;margin-top:6px}
@@ -394,6 +396,11 @@ img{max-width:100%;display:block}
         <div class="tier-medal gold">G</div>
         <div class="tier-name">Gold</div>
         <div class="tier-count">25+ friends</div>
+      </div>
+      <div class="tier">
+        <div class="tier-medal ambassador">A</div>
+        <div class="tier-name">Ambassador</div>
+        <div class="tier-count">50+ friends</div>
       </div>
     </div>
   </div>

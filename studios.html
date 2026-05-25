@@ -85,34 +85,41 @@ form{display:flex;flex-direction:column;gap:14px;margin-top:32px;width:100%;text
 </header>
 
 <section class="hero">
-  <span class="badge fx-up fx-up-1">For studios</span>
-  <h1 class="fx-up fx-up-2">Grow your studio<br/>with <em>Nabad</em>.</h1>
-  <p class="sub fx-up fx-up-3">Tell us a bit about your space and we'll send you everything you need to know.</p>
+  <h1 class="fx-up fx-up-1">Join<br/><em>Nabad</em></h1>
+  <p class="sub fx-up fx-up-2">Tell us about your studio. We'll get back to you within 48 hours.</p>
 
-  <form id="studioForm" class="fx-up fx-up-4" onsubmit="event.preventDefault();document.getElementById('studioSuccess').classList.add('show');this.style.display='none';">
-    <div class="field">
-      <label for="sn">Your name *</label>
-      <input id="sn" type="text" required/>
-    </div>
+  <form id="studioForm" class="fx-up fx-up-3" onsubmit="event.preventDefault();document.getElementById('studioSuccess').classList.add('show');this.style.display='none';">
     <div class="field">
       <label for="ss">Studio name *</label>
       <input id="ss" type="text" required/>
     </div>
     <div class="field">
-      <label for="sl">City / Area *</label>
-      <input id="sl" type="text" required placeholder="Beirut, Jounieh, Tripoli…"/>
+      <label for="sn">Your name *</label>
+      <input id="sn" type="text" required/>
     </div>
     <div class="field">
       <label for="se">Email *</label>
       <input id="se" type="email" required placeholder="you@studio.com"/>
     </div>
     <div class="field">
-      <label for="sp">Phone (optional)</label>
-      <input id="sp" type="tel"/>
+      <label for="sw">WhatsApp *</label>
+      <input id="sw" type="tel" required placeholder="+961…"/>
     </div>
     <div class="field">
-      <label for="sm">A quick word about your studio (optional)</label>
-      <textarea id="sm" placeholder="Types of classes, number of spots, anything else we should know."></textarea>
+      <label for="sl">City *</label>
+      <input id="sl" type="text" required placeholder="Beirut, Jounieh, Tripoli…"/>
+    </div>
+    <div class="field">
+      <label for="sb">Business type *</label>
+      <input id="sb" type="text" required placeholder="Pilates, Yoga, Lagree, Boxing, Gym…"/>
+    </div>
+    <div class="field">
+      <label for="sx">Website or social media link</label>
+      <input id="sx" type="url" placeholder="https://… or @yourstudio"/>
+    </div>
+    <div class="field">
+      <label for="sp">Current booking & POS system</label>
+      <input id="sp" type="text" placeholder="Mindbody, Vagaro, none…"/>
     </div>
     <button type="submit" class="btn">Send</button>
   </form>

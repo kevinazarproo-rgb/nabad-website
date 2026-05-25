@@ -108,49 +108,6 @@ h1 em{font-style:italic;color:var(--terra);font-weight:400}
 .bottom{padding:20px 24px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--slate);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .bottom a{color:var(--ink);font-weight:600;text-decoration:underline}
 
-/* Preview cards (App Store style) */
-.preview{padding:40px 0 64px}
-.preview-head{padding:0 24px;max-width:1100px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px}
-.preview-head h2{font-size:clamp(22px,4vw,28px);font-weight:800;letter-spacing:-.02em}
-.preview-head .hint{font-size:13px;color:var(--slate);font-weight:500}
-.preview-row{
-  display:flex;gap:18px;
-  overflow-x:auto;scroll-snap-type:x mandatory;
-  scrollbar-width:none;-ms-overflow-style:none;
-  padding:8px 24px 16px;
-}
-.preview-row::-webkit-scrollbar{display:none}
-.preview-card{
-  flex:0 0 78%;max-width:340px;
-  aspect-ratio:9/16;
-  border-radius:24px;
-  overflow:hidden;position:relative;
-  scroll-snap-align:center;
-  display:flex;flex-direction:column;
-  padding:32px 28px 0;
-}
-@media(min-width:760px){.preview-card{flex:0 0 320px}}
-.preview-card.g1{background:linear-gradient(160deg,#F6E9E1 0%,#EDDACB 100%);color:#5A3A2A}
-.preview-card.g2{background:linear-gradient(160deg,#1E1A17 0%,#3A2E25 100%);color:#fff}
-.preview-card.g3{background:linear-gradient(160deg,#E2DFD8 0%,#C8C0B0 100%);color:#1E1A17}
-.preview-tag{
-  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  opacity:.7;margin-bottom:10px;
-}
-.preview-title{
-  font-size:clamp(24px,5vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.05;
-  font-family:Georgia,'Cormorant Garamond',serif;font-style:italic;font-weight:400;
-}
-.preview-sub{font-size:14px;margin-top:8px;opacity:.85;font-weight:500;font-family:'Manrope',sans-serif}
-.preview-phone{
-  position:absolute;bottom:-30px;
-  width:78%;left:11%;
-  transform:rotate(-3deg);
-  border-radius:22px;overflow:hidden;
-  background:#1E1A17;padding:5px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.18);
-}
-.preview-phone img{width:100%;display:block;border-radius:17px}
 </style>
 <!-- OG START -->
 <meta property="og:type" content="website"/>
@@ -223,32 +180,6 @@ h1 em{font-style:italic;color:var(--terra);font-weight:400}
   </div>
 </section>
 
-<section class="preview">
-  <div class="preview-head">
-    <h2>Preview</h2>
-    <span class="hint">Swipe →</span>
-  </div>
-  <div class="preview-row">
-    <div class="preview-card g1">
-      <div class="preview-tag">Book smarter</div>
-      <div class="preview-title">One pass.<br/>Every studio<br/>in Lebanon.</div>
-      <div class="preview-sub">Pilates, yoga, Lagree and more, all in one app.</div>
-      <div class="preview-phone"><img src="assets/app-mockup.jpeg" alt=""/></div>
-    </div>
-    <div class="preview-card g2">
-      <div class="preview-tag">Flexible</div>
-      <div class="preview-title">Credits<br/>that never<br/>expire.</div>
-      <div class="preview-sub">Use them today, tomorrow, or next month. They stay.</div>
-      <div class="preview-phone"><img src="assets/app-mockup.jpeg" alt=""/></div>
-    </div>
-    <div class="preview-card g3">
-      <div class="preview-tag">No commitment</div>
-      <div class="preview-title">Pause<br/>or cancel<br/>anytime.</div>
-      <div class="preview-sub">No contracts. No fees. Stop and restart on your terms.</div>
-      <div class="preview-phone"><img src="assets/app-mockup.jpeg" alt=""/></div>
-    </div>
-  </div>
-</section>
 
 <div class="bottom">
   <span>&copy; 2026 Nabad</span>

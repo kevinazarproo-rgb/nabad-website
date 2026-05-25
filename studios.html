@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Studios — Nabad</title>
+<meta name="description" content="Run a studio in Lebanon? Tell us about your space and we'll get back with how Nabad can help."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/anim.css"/>
+<link rel="icon" type="image/png" href="assets/IMG_7429.png"/>
+<link rel="apple-touch-icon" href="assets/IMG_7429.png"/>
+<style>
+:root{
+  --bg:#EDEBE6;--bg-soft:#E2DFD8;--ink:#1E1A17;--slate:#717D8A;
+  --line:rgba(30,26,23,0.12);
+  --terra:#B06E52;--terra-d:#8E5740;--terra-l:#F6E9E1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-logo{display:inline-flex;align-items:center;font-size:24px;font-weight:800;letter-spacing:-.03em}
+.nav-logo img{height:72px;width:auto;display:block}
+@media(min-width:760px){.nav-logo img{height:96px}}
+
+.hero{
+  flex:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 24px;
+  max-width:560px;width:100%;margin:0 auto;
+  text-align:center;
+}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--terra-l);color:var(--terra-d);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra)}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+h1 em{font-style:italic;color:var(--terra);font-weight:400}
+.sub{font-size:16.5px;color:var(--slate);margin-top:16px;max-width:44ch;line-height:1.55}
+
+form{display:flex;flex-direction:column;gap:14px;margin-top:32px;width:100%;text-align:left}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;font-weight:600;color:var(--ink)}
+.field input,.field textarea{
+  font:inherit;color:var(--ink);
+  border:1.5px solid rgba(30,26,23,.18);
+  background:#fff;padding:14px 16px;border-radius:12px;
+  outline:none;transition:border-color .15s;width:100%;
+}
+.field input:focus,.field textarea:focus{border-color:var(--terra)}
+.field textarea{resize:vertical;min-height:110px;font-family:inherit}
+.btn{display:block;width:100%;text-align:center;padding:16px 24px;border-radius:100px;font-size:15.5px;font-weight:700;transition:background .15s,transform .15s;border:none;cursor:pointer;background:var(--terra);color:#fff;margin-top:8px}
+.btn:hover{background:var(--terra-d);transform:translateY(-1px)}
+
+.success{display:none;margin-top:24px;padding:22px;background:var(--terra-l);color:var(--terra-d);border-radius:14px;font-weight:600;font-size:15px;text-align:left}
+.success.show{display:block}
+
+.foot-note{font-size:13px;color:var(--slate);margin-top:20px}
+.foot-note a{color:var(--ink);font-weight:600;text-decoration:underline}
+
+.bottom{padding:20px 24px;border-top:1px solid var(--line);font-size:13px;color:var(--slate);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.bottom a{color:var(--ink);font-weight:600;text-decoration:underline}
+</style>
+<!-- OG START -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kevinazarproo-rgb.github.io/nabad-website/studios.html"/>
+<meta property="og:title" content="Studios — Nabad"/>
+<meta property="og:description" content="Run a studio in Lebanon? Tell us about your space and we'll get back."/>
+<meta property="og:image" content="https://kevinazarproo-rgb.github.io/nabad-website/assets/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Studios — Nabad"/>
+<meta name="twitter:description" content="Run a studio in Lebanon? Tell us about your space and we'll get back."/>
+<meta name="twitter:image" content="https://kevinazarproo-rgb.github.io/nabad-website/assets/og-image.jpg"/>
+<!-- OG END -->
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo-wordmark.png" alt="Nabad"/></a>
+</header>
+
+<section class="hero">
+  <span class="badge fx-up fx-up-1">For studios</span>
+  <h1 class="fx-up fx-up-2">Grow your studio<br/>with <em>Nabad</em>.</h1>
+  <p class="sub fx-up fx-up-3">Tell us a bit about your space and we'll send you everything you need to know.</p>
+
+  <form id="studioForm" class="fx-up fx-up-4" onsubmit="event.preventDefault();document.getElementById('studioSuccess').classList.add('show');this.style.display='none';">
+    <div class="field">
+      <label for="sn">Your name *</label>
+      <input id="sn" type="text" required/>
+    </div>
+    <div class="field">
+      <label for="ss">Studio name *</label>
+      <input id="ss" type="text" required/>
+    </div>
+    <div class="field">
+      <label for="sl">City / Area *</label>
+      <input id="sl" type="text" required placeholder="Beirut, Jounieh, Tripoli…"/>
+    </div>
+    <div class="field">
+      <label for="se">Email *</label>
+      <input id="se" type="email" required placeholder="you@studio.com"/>
+    </div>
+    <div class="field">
+      <label for="sp">Phone (optional)</label>
+      <input id="sp" type="tel"/>
+    </div>
+    <div class="field">
+      <label for="sm">A quick word about your studio (optional)</label>
+      <textarea id="sm" placeholder="Types of classes, number of spots, anything else we should know."></textarea>
+    </div>
+    <button type="submit" class="btn">Send</button>
+  </form>
+
+  <div class="success" id="studioSuccess">Thanks! We'll get back to you within 48 hours with everything about partnering with Nabad.</div>
+
+  <p class="foot-note">Already partnering? Email <a href="mailto:nabad.studio@gmail.com">nabad.studio@gmail.com</a></p>
+</section>
+
+<div class="bottom">
+  <span>&copy; 2026 Nabad</span>
+  <span><a href="index.html">Home</a></span>
+</div>
+
+<script src="assets/anim.js" defer></script>
+</body>
+</html>

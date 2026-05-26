@@ -123,17 +123,8 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   letter-spacing:-.025em;
   text-wrap:balance;
 }
+.hero h1 em{font-style:italic;font-weight:500;color:var(--blue)}
 .hero p{font-size:17px;color:var(--slate);line-height:1.5;max-width:36ch}
-.hero-promo{
-  display:inline-flex;align-items:center;gap:8px;
-  align-self:flex-start;
-  padding:8px 16px;border-radius:100px;
-  background:var(--blue);color:#fff;
-  font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-}
-.hero-promo::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;opacity:.9;animation:nbPulseDot 1.8s ease-in-out infinite}
-@keyframes nbPulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-@media(min-width:1024px){.hero-promo{align-self:center;font-size:14px;padding:10px 20px}}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:8px}
 .hero-link{
   text-align:center;font-size:15px;font-weight:600;
@@ -300,9 +291,8 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
     </div>
   </div>
   <div class="hero-body">
-    <span class="hero-promo">−30% on every class</span>
-    <h1>One pass for every studio in Lebanon</h1>
-    <p>Pilates, yoga, Lagree and more. Book classes at hundreds of studios with a single membership.</p>
+    <h1>One pass, every studio in Lebanon, <em>30% off every class.</em></h1>
+    <p>Pilates, yoga, Lagree and more, all on a single membership.</p>
     <div class="hero-ctas">
       <a href="plans.html" class="btn-primary">See the plans</a>
       <button class="btn-outline" onclick="openOnb()">Learn more about Nabad</button>

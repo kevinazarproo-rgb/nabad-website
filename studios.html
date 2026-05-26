@@ -88,38 +88,40 @@ form{display:flex;flex-direction:column;gap:14px;margin-top:32px;width:100%;text
   <h1 class="fx-up fx-up-1">Join<br/><em>Nabad</em></h1>
   <p class="sub fx-up fx-up-2">Tell us about your studio. We'll get back to you within 48 hours.</p>
 
-  <form id="studioForm" class="fx-up fx-up-3" onsubmit="event.preventDefault();document.getElementById('studioSuccess').classList.add('show');this.style.display='none';">
+  <form id="studioForm" class="fx-up fx-up-3" action="https://formspree.io/f/xwvyqbnp" method="POST">
+    <input type="hidden" name="_subject" value="New studio interested in Nabad"/>
+    <input type="hidden" name="form_source" value="studios.html (B2C → studio intake)"/>
     <div class="field">
       <label for="ss">Studio name *</label>
-      <input id="ss" type="text" required/>
+      <input id="ss" name="Studio name" type="text" required/>
     </div>
     <div class="field">
       <label for="sn">Your name *</label>
-      <input id="sn" type="text" required/>
+      <input id="sn" name="Your name" type="text" required/>
     </div>
     <div class="field">
       <label for="se">Email *</label>
-      <input id="se" type="email" required placeholder="you@studio.com"/>
+      <input id="se" name="Email" type="email" required placeholder="you@studio.com"/>
     </div>
     <div class="field">
       <label for="sw">WhatsApp *</label>
-      <input id="sw" type="tel" required placeholder="+961…"/>
+      <input id="sw" name="WhatsApp" type="tel" required placeholder="+961…"/>
     </div>
     <div class="field">
       <label for="sl">City *</label>
-      <input id="sl" type="text" required placeholder="Beirut, Jounieh, Tripoli…"/>
+      <input id="sl" name="City" type="text" required placeholder="Beirut, Jounieh, Tripoli…"/>
     </div>
     <div class="field">
       <label for="sb">Business type *</label>
-      <input id="sb" type="text" required placeholder="Pilates, Yoga, Lagree, Boxing, Gym…"/>
+      <input id="sb" name="Business type" type="text" required placeholder="Pilates, Yoga, Lagree, Boxing, Gym…"/>
     </div>
     <div class="field">
       <label for="sx">Website or social media link</label>
-      <input id="sx" type="url" placeholder="https://… or @yourstudio"/>
+      <input id="sx" name="Website or social" type="url" placeholder="https://… or @yourstudio"/>
     </div>
     <div class="field">
       <label for="sp">Current booking & POS system</label>
-      <input id="sp" type="text" placeholder="Mindbody, Vagaro, none…"/>
+      <input id="sp" name="Current booking/POS" type="text" placeholder="Mindbody, Vagaro, none…"/>
     </div>
     <button type="submit" class="btn">Send</button>
   </form>
@@ -135,5 +137,28 @@ form{display:flex;flex-direction:column;gap:14px;margin-top:32px;width:100%;text
 </div>
 
 <script src="assets/anim.js" defer></script>
+<script>
+document.getElementById('studioForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {
+      method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      form.style.display = 'none';
+      document.getElementById('studioSuccess').classList.add('show');
+    } else {
+      btn.disabled = false; btn.textContent = 'Send';
+      alert('Something went wrong. Please email studionabad@gmail.com.');
+    }
+  } catch(err){
+    btn.disabled = false; btn.textContent = 'Send';
+    alert('Something went wrong. Please email studionabad@gmail.com.');
+  }
+});
+</script>
 </body>
 </html>

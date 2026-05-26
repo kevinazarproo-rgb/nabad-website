@@ -141,14 +141,16 @@ h1 em{font-style:italic;color:var(--terra);font-weight:400}
     <div class="actions fx-up fx-up-5">
       <button type="button" class="btn btn-primary" id="notifyBtn" onclick="document.getElementById('notifyForm').classList.add('open');this.style.display='none'">Notify me at launch</button>
 
-      <form class="notify-form" id="notifyForm" onsubmit="event.preventDefault();document.getElementById('notifySuccess').classList.add('show');this.reset();this.classList.remove('open');document.getElementById('notifyBtn').style.display='none';">
+      <form class="notify-form" id="notifyForm" action="https://formspree.io/f/xwvyqbnp" method="POST">
+        <input type="hidden" name="_subject" value="New launch waitlist signup"/>
+        <input type="hidden" name="form_source" value="coming-soon.html (waitlist)"/>
         <div class="field">
           <label for="ne">Email *</label>
-          <input id="ne" type="email" required placeholder="you@example.com"/>
+          <input id="ne" name="Email" type="email" required placeholder="you@example.com"/>
         </div>
         <div class="field">
           <label for="np">Phone (optional)</label>
-          <input id="np" type="tel" placeholder="Phone number"/>
+          <input id="np" name="Phone" type="tel" placeholder="Phone number"/>
         </div>
         <button type="submit" class="btn btn-primary">Notify me</button>
       </form>
@@ -179,5 +181,22 @@ h1 em{font-style:italic;color:var(--terra);font-weight:400}
 </div>
 
 <script src="assets/anim.js" defer></script>
+<script>
+document.getElementById('notifyForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
+    if(res.ok){
+      form.reset();
+      form.classList.remove('open');
+      document.getElementById('notifyBtn').style.display = 'none';
+      document.getElementById('notifySuccess').classList.add('show');
+    } else { btn.disabled = false; btn.textContent = 'Notify me'; alert('Something went wrong. Please email studionabad@gmail.com.'); }
+  } catch(err){ btn.disabled = false; btn.textContent = 'Notify me'; alert('Something went wrong. Please email studionabad@gmail.com.'); }
+});
+</script>
 </body>
 </html>

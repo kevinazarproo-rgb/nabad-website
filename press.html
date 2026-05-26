@@ -126,21 +126,24 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 <section class="content reveal">
   <div class="wrap">
     <div class="inner">
-      <form onsubmit="event.preventDefault();alert('Thanks! We\'ll reach out within 48 hours.');this.reset();">
+      <form id="pressForm" action="https://formspree.io/f/xwvyqbnp" method="POST">
+        <input type="hidden" name="_subject" value="Press inquiry"/>
+        <input type="hidden" name="form_source" value="press.html"/>
         <div class="field">
           <label for="email">Your email *</label>
-          <input id="email" type="email" required/>
+          <input id="email" name="Email" type="email" required/>
         </div>
         <div class="field">
           <label for="name">Your name (and outlet, if any)</label>
-          <input id="name" type="text"/>
+          <input id="name" name="Name" type="text"/>
         </div>
         <div class="field">
           <label for="msg">What's your story? *</label>
-          <textarea id="msg" required placeholder="Tell us what you're working on, what you need, and any deadlines we should know about."></textarea>
+          <textarea id="msg" name="Story" required placeholder="Tell us what you're working on, what you need, and any deadlines we should know about."></textarea>
         </div>
         <button class="submit" type="submit">Send to press team</button>
       </form>
+      <div id="pressSuccess" style="display:none;margin-top:20px;padding:18px;background:var(--terra-l);color:var(--terra-d);border-radius:12px;font-weight:600">Thanks! We'll reach out within 48 hours.</div>
     </div>
   </div>
 </section>
@@ -161,5 +164,20 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </footer>
 <script src="assets/anim.js" defer></script>
+<script>
+document.getElementById('pressForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
+    if(res.ok){
+      form.style.display = 'none';
+      document.getElementById('pressSuccess').style.display = 'block';
+    } else { btn.disabled = false; btn.textContent = 'Send to press team'; alert('Something went wrong. Please email studionabad@gmail.com.'); }
+  } catch(err){ btn.disabled = false; btn.textContent = 'Send to press team'; alert('Something went wrong. Please email studionabad@gmail.com.'); }
+});
+</script>
 </body>
 </html>

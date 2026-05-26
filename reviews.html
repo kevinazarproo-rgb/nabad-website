@@ -51,12 +51,28 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .page-hero p{font-size:17px;color:var(--ink);margin-top:14px;max-width:62ch}
 
 /* GROUP */
-.group{padding:56px 0 32px}
+.group{padding:56px 0 32px;overflow:hidden}
 .group h2{font-size:clamp(24px,5vw,32px);font-weight:800;letter-spacing:-.02em;margin-bottom:24px}
 .group h2 em{font-style:italic;color:var(--terra);font-weight:400}
-.cards{display:grid;grid-template-columns:1fr;gap:18px}
-@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr);gap:22px}}
-@media(min-width:1024px){.cards{grid-template-columns:repeat(3,1fr)}}
+
+.rev-marquee{overflow:hidden;padding:8px 0}
+.rev-track{
+  display:flex;gap:18px;
+  animation:nbRevLeft 80s linear infinite;
+  width:max-content;
+}
+.group.rev .rev-track{animation-name:nbRevRight}
+.rev-track:hover{animation-play-state:paused}
+.rev-track .review{flex:0 0 300px;width:300px}
+@keyframes nbRevLeft{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@keyframes nbRevRight{
+  from{transform:translateX(-50%)}
+  to{transform:translateX(0)}
+}
+@media(prefers-reduced-motion:reduce){.rev-track{animation:none}}
 
 .review{background:#fff;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 6px 20px rgba(30,26,23,.05);border:1px solid var(--line)}
 .review-stars{color:var(--terra);font-size:14px;letter-spacing:2px}
@@ -138,65 +154,43 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 </section>
 
 <section class="group reveal">
-  <div class="wrap">
-    <h2>From <em>movers</em></h2>
-    <div class="cards">
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">Finally, one membership and I can pop into pilates Monday, yoga Wednesday, and a boxing class Friday. No more juggling apps.</div>
-        <div class="review-author">
-          <div class="review-avatar">L</div>
-          <div class="review-meta"><span class="review-name">Léa H.</span><span class="review-role">Beirut · Early member</span></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">Beautiful app, easy booking, and credits that don't expire after 7 days like the gym chains. Exactly what was missing here.</div>
-        <div class="review-author">
-          <div class="review-avatar">K</div>
-          <div class="review-meta"><span class="review-name">Karim S.</span><span class="review-role">Jounieh · Early member</span></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">I'd been wanting to try reformer pilates but didn't want to commit to a full studio package. With Nabad I just used a few credits and tested it.</div>
-        <div class="review-author">
-          <div class="review-avatar">N</div>
-          <div class="review-meta"><span class="review-name">Nour A.</span><span class="review-role">Beirut · Early member</span></div>
-        </div>
-      </div>
+  <div class="wrap"><h2>From <em>movers</em></h2></div>
+  <div class="rev-marquee">
+    <div class="rev-track">
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">Finally, one membership and I can pop into pilates Monday, yoga Wednesday, and a boxing class Friday. No more juggling apps.</div><div class="review-author"><div class="review-avatar">L</div><div class="review-meta"><span class="review-name">Léa H.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">Beautiful app, easy booking, and credits that don't expire after 7 days like the gym chains. Exactly what was missing here.</div><div class="review-author"><div class="review-avatar">K</div><div class="review-meta"><span class="review-name">Karim S.</span><span class="review-role">Jounieh · Early member</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">I'd been wanting to try reformer pilates but didn't want to commit to a full studio package. With Nabad I tested it for a few credits.</div><div class="review-author"><div class="review-avatar">N</div><div class="review-meta"><span class="review-name">Nour A.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">Booked a Lagree class in Ashrafieh and a yoga session in Hamra the same week. Feels like everything's finally connected.</div><div class="review-author"><div class="review-avatar">R</div><div class="review-meta"><span class="review-name">Rana T.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">The credits never expiring changed everything. Quiet month? I keep them. Busy month? I have my full stack ready.</div><div class="review-author"><div class="review-avatar">J</div><div class="review-meta"><span class="review-name">Jad M.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">I travel between Beirut and Batroun for work. One subscription works in both cities, that's huge for me.</div><div class="review-author"><div class="review-avatar">Y</div><div class="review-meta"><span class="review-name">Yasmine F.</span><span class="review-role">Batroun · Early member</span></div></div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">Finally, one membership and I can pop into pilates Monday, yoga Wednesday, and a boxing class Friday. No more juggling apps.</div><div class="review-author"><div class="review-avatar">L</div><div class="review-meta"><span class="review-name">Léa H.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">Beautiful app, easy booking, and credits that don't expire after 7 days like the gym chains. Exactly what was missing here.</div><div class="review-author"><div class="review-avatar">K</div><div class="review-meta"><span class="review-name">Karim S.</span><span class="review-role">Jounieh · Early member</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">I'd been wanting to try reformer pilates but didn't want to commit to a full studio package. With Nabad I tested it for a few credits.</div><div class="review-author"><div class="review-avatar">N</div><div class="review-meta"><span class="review-name">Nour A.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">Booked a Lagree class in Ashrafieh and a yoga session in Hamra the same week. Feels like everything's finally connected.</div><div class="review-author"><div class="review-avatar">R</div><div class="review-meta"><span class="review-name">Rana T.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">The credits never expiring changed everything. Quiet month? I keep them. Busy month? I have my full stack ready.</div><div class="review-author"><div class="review-avatar">J</div><div class="review-meta"><span class="review-name">Jad M.</span><span class="review-role">Beirut · Early member</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">I travel between Beirut and Batroun for work. One subscription works in both cities, that's huge for me.</div><div class="review-author"><div class="review-avatar">Y</div><div class="review-meta"><span class="review-name">Yasmine F.</span><span class="review-role">Batroun · Early member</span></div></div></div>
     </div>
   </div>
 </section>
 
-<section class="group reveal" style="background:var(--bg-soft);padding-bottom:56px">
-  <div class="wrap">
-    <h2>From <em>studio partners</em></h2>
-    <div class="cards">
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">Off-peak slots that used to stay empty are now filled. Zero setup, zero risk. We only get paid for spots that fill.</div>
-        <div class="review-author">
-          <div class="review-avatar">M</div>
-          <div class="review-meta"><span class="review-name">Maya G.</span><span class="review-role">Owner · Pilates studio, Beirut</span></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">Most Nabad bookings are first-time clients. Several have come back directly and bought our own packages.</div>
-        <div class="review-author">
-          <div class="review-avatar">R</div>
-          <div class="review-meta"><span class="review-name">Ralph K.</span><span class="review-role">Manager · Yoga studio, Jounieh</span></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-quote">The dashboard is simple and the team is responsive. Honestly the easiest partnership we've signed.</div>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div class="review-meta"><span class="review-name">Sandra A.</span><span class="review-role">Owner · Boutique fitness, Batroun</span></div>
-        </div>
-      </div>
+<section class="group reveal rev" style="background:var(--bg-soft);padding-bottom:56px">
+  <div class="wrap"><h2>From <em>studio partners</em></h2></div>
+  <div class="rev-marquee">
+    <div class="rev-track">
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">Off-peak slots that used to stay empty are now filled. Zero setup, zero risk. We only get paid for spots that fill.</div><div class="review-author"><div class="review-avatar">M</div><div class="review-meta"><span class="review-name">Maya G.</span><span class="review-role">Owner · Pilates studio, Beirut</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">Most Nabad bookings are first-time clients. Several have come back directly and bought our own packages.</div><div class="review-author"><div class="review-avatar">R</div><div class="review-meta"><span class="review-name">Ralph K.</span><span class="review-role">Manager · Yoga studio, Jounieh</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">The dashboard is simple and the team is responsive. Honestly the easiest partnership we've signed.</div><div class="review-author"><div class="review-avatar">S</div><div class="review-meta"><span class="review-name">Sandra A.</span><span class="review-role">Owner · Boutique fitness, Batroun</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">We had 12 new clients this month thanks to Nabad. Half of them came back on their own the following week.</div><div class="review-author"><div class="review-avatar">T</div><div class="review-meta"><span class="review-name">Tamara B.</span><span class="review-role">Owner · Lagree studio, Beirut</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">No more spreadsheets to manage extra bookings. Everything goes through the dashboard and the payments arrive monthly.</div><div class="review-author"><div class="review-avatar">P</div><div class="review-meta"><span class="review-name">Patrick D.</span><span class="review-role">Manager · CrossFit, Jounieh</span></div></div></div>
+      <div class="review"><div class="review-stars">★★★★★</div><div class="review-quote">It actually brings the right crowd. Curious, paying, and surprisingly loyal. We see Nabad members week after week.</div><div class="review-author"><div class="review-avatar">A</div><div class="review-meta"><span class="review-name">Amal J.</span><span class="review-role">Owner · Yoga studio, Tripoli</span></div></div></div>
+      <!-- duplicate -->
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">Off-peak slots that used to stay empty are now filled. Zero setup, zero risk. We only get paid for spots that fill.</div><div class="review-author"><div class="review-avatar">M</div><div class="review-meta"><span class="review-name">Maya G.</span><span class="review-role">Owner · Pilates studio, Beirut</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">Most Nabad bookings are first-time clients. Several have come back directly and bought our own packages.</div><div class="review-author"><div class="review-avatar">R</div><div class="review-meta"><span class="review-name">Ralph K.</span><span class="review-role">Manager · Yoga studio, Jounieh</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">The dashboard is simple and the team is responsive. Honestly the easiest partnership we've signed.</div><div class="review-author"><div class="review-avatar">S</div><div class="review-meta"><span class="review-name">Sandra A.</span><span class="review-role">Owner · Boutique fitness, Batroun</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">We had 12 new clients this month thanks to Nabad. Half of them came back on their own the following week.</div><div class="review-author"><div class="review-avatar">T</div><div class="review-meta"><span class="review-name">Tamara B.</span><span class="review-role">Owner · Lagree studio, Beirut</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">No more spreadsheets to manage extra bookings. Everything goes through the dashboard and the payments arrive monthly.</div><div class="review-author"><div class="review-avatar">P</div><div class="review-meta"><span class="review-name">Patrick D.</span><span class="review-role">Manager · CrossFit, Jounieh</span></div></div></div>
+      <div class="review" aria-hidden="true"><div class="review-stars">★★★★★</div><div class="review-quote">It actually brings the right crowd. Curious, paying, and surprisingly loyal. We see Nabad members week after week.</div><div class="review-author"><div class="review-avatar">A</div><div class="review-meta"><span class="review-name">Amal J.</span><span class="review-role">Owner · Yoga studio, Tripoli</span></div></div></div>
     </div>
   </div>
 </section>
